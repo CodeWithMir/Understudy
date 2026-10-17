@@ -16,7 +16,7 @@ google-genai>=1.0.0,<3.0.0
 
 # Outbound HTTP (page discovery, registry version lists, runtime downloads) and exact version checks
 requests>=2.31.0,<3.0.0
-packaging>=23.0
+packaging>=26.3
 
 # Browser automation (live page probe, page discovery of JavaScript-built pages, the built-in reference driver)
 playwright>=1.42.0
