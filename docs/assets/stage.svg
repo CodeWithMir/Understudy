@@ -1,112 +1,161 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" role="img" aria-label="Understudy - Show it once. Get automation you can trust.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-label="Understudy - the curtain opens: Show it once. Get automation you can trust.">
   <defs>
-    <clipPath id="frame"><rect width="1200" height="460" rx="28"/></clipPath>
+    <clipPath id="frame"><rect width="1200" height="480" rx="28"/></clipPath>
     <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="70"/></filter>
     <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
-    <linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#B9C4E4"/>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+
+    <!-- velvet: one soft fold, repeated -->
+    <linearGradient id="fold" x1="0" x2="1">
+      <stop offset="0" stop-color="#2B0711"/>
+      <stop offset="0.28" stop-color="#5E1222"/>
+      <stop offset="0.5" stop-color="#8C2236"/>
+      <stop offset="0.72" stop-color="#5E1222"/>
+      <stop offset="1" stop-color="#2B0711"/>
     </linearGradient>
-    <linearGradient id="line" gradientUnits="userSpaceOnUse" x1="260" y1="0" x2="940" y2="0">
+    <pattern id="velvet" width="64" height="480" patternUnits="userSpaceOnUse">
+      <rect width="64" height="480" fill="url(#fold)"/>
+    </pattern>
+    <linearGradient id="depth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0.55"/>
+      <stop offset="0.25" stop-color="#000" stop-opacity="0.05"/>
+      <stop offset="0.8" stop-color="#000" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="sheenL" x1="0" x2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.85" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="sheenR" x1="1" x2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.85" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#8A6A2A"/><stop offset="0.5" stop-color="#E6C878"/><stop offset="1" stop-color="#8A6A2A"/>
+    </linearGradient>
+
+    <!-- stage -->
+    <linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C7CEE6"/>
+    </linearGradient>
+    <linearGradient id="line" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="900" y2="0">
       <stop offset="0" stop-color="#4285F4"/><stop offset="0.25" stop-color="#FBBC04"/>
       <stop offset="0.5" stop-color="#34A853"/><stop offset="0.75" stop-color="#EA4335"/>
       <stop offset="1" stop-color="#A78BFA"/>
     </linearGradient>
-    <radialGradient id="cone" cx="50%" cy="0%" r="80%">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.10"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    <radialGradient id="cone" cx="50%" cy="0%" r="85%">
+      <stop offset="0" stop-color="#FFF4D8" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FFF4D8" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="fade" cx="50%" cy="45%" r="60%">
-      <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    <radialGradient id="pool" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FFF4D8" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#FFF4D8" stop-opacity="0"/>
     </radialGradient>
-    <mask id="gridmask"><rect width="1200" height="460" fill="url(#fade)"/></mask>
-    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
-      <circle cx="1.5" cy="1.5" r="1.2" fill="#FFFFFF" fill-opacity="0.10"/>
-    </pattern>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#121830"/><stop offset="1" stop-color="#070A14"/>
+    </linearGradient>
     <radialGradient id="comet">
       <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="0.35" stop-color="#22D3EE" stop-opacity="0.8"/>
-      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#FFE7A8" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FFE7A8" stop-opacity="0"/>
     </radialGradient>
+
     <style>
       .sans{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
-      .a1{animation:d1 18s ease-in-out infinite alternate}
-      .a2{animation:d2 22s ease-in-out infinite alternate}
-      .a3{animation:d3 26s ease-in-out infinite alternate}
-      @keyframes d1{to{transform:translate(160px,40px)}}
-      @keyframes d2{to{transform:translate(-180px,-30px)}}
-      @keyframes d3{to{transform:translate(90px,-50px)}}
-      .rise{animation:rise 1.6s cubic-bezier(.2,.7,.2,1) both}
-      .rise2{animation-delay:.25s}.rise3{animation-delay:.5s}.rise4{animation-delay:.8s}
-      @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-      .breath{animation:br 6s ease-in-out infinite}
-      @keyframes br{50%{opacity:.55}}
-      .node{animation:nd 8s infinite both}
-      .n1{animation-delay:0s}.n2{animation-delay:1.5s}.n3{animation-delay:3s}.n4{animation-delay:4.5s}.n5{animation-delay:6s}
-      @keyframes nd{0%,100%{r:4.5}3%{r:8}10%{r:4.5}}
-      @media (prefers-reduced-motion: reduce){.a1,.a2,.a3,.rise,.breath,.node{animation:none}}
+      .serif{font-family:'Playfair Display',Georgia,'Times New Roman',serif}
+      /* curtains gather to the sides once, then stay open */
+      .cl{transform-origin:0 0;animation:gather 2.8s cubic-bezier(.65,0,.25,1) .5s both}
+      .cr{transform-origin:1200px 0;animation:gather 2.8s cubic-bezier(.65,0,.25,1) .5s both}
+      @keyframes gather{from{transform:scaleX(1)}to{transform:scaleX(.13)}}
+      .light{animation:on 2.4s ease-out 1.4s both}
+      @keyframes on{from{opacity:0}to{opacity:1}}
+      .rise{animation:rise 1.4s cubic-bezier(.2,.7,.2,1) both}
+      .r1{animation-delay:1.9s}.r2{animation-delay:2.2s}.r3{animation-delay:2.5s}.r4{animation-delay:2.9s}
+      @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+      .a1{animation:d1 18s ease-in-out infinite alternate}.a2{animation:d2 22s ease-in-out infinite alternate}
+      @keyframes d1{to{transform:translate(120px,30px)}}@keyframes d2{to{transform:translate(-140px,-20px)}}
+      .breath{animation:br 7s ease-in-out 4s infinite}
+      @keyframes br{50%{opacity:.6}}
+      @media (prefers-reduced-motion: reduce){
+        .cl,.cr{animation:none;transform:scaleX(.13)}
+        .light,.rise,.a1,.a2,.breath{animation:none;opacity:1}
+      }
     </style>
   </defs>
 
   <g clip-path="url(#frame)">
-    <rect width="1200" height="460" fill="#070A14"/>
+    <!-- the stage behind the curtain -->
+    <rect width="1200" height="480" fill="#070A14"/>
+    <g filter="url(#blur)" opacity="0.6">
+      <ellipse class="a1" cx="360" cy="150" rx="240" ry="110" fill="#4285F4" fill-opacity="0.35"/>
+      <ellipse class="a2" cx="860" cy="140" rx="230" ry="110" fill="#A78BFA" fill-opacity="0.30"/>
+    </g>
+    <rect y="372" width="1200" height="108" fill="url(#floor)"/>
+    <path d="M0 372 H1200" stroke="#FFFFFF" stroke-opacity="0.06"/>
 
-    <!-- aurora -->
-    <g filter="url(#blur)" opacity="0.75">
-      <ellipse class="a1" cx="300" cy="120" rx="260" ry="120" fill="#4285F4" fill-opacity="0.45"/>
-      <ellipse class="a2" cx="920" cy="110" rx="240" ry="120" fill="#A78BFA" fill-opacity="0.40"/>
-      <ellipse class="a3" cx="640" cy="420" rx="300" ry="110" fill="#34A853" fill-opacity="0.25"/>
-      <ellipse class="a2" cx="160" cy="430" rx="180" ry="90" fill="#FBBC04" fill-opacity="0.18"/>
+    <g class="light">
+      <polygon class="breath" points="530,0 670,0 930,400 270,400" fill="url(#cone)"/>
+      <ellipse cx="600" cy="398" rx="360" ry="34" fill="url(#pool)"/>
     </g>
 
-    <!-- dot grid, faded at the edges -->
-    <rect width="1200" height="460" fill="url(#dots)" mask="url(#gridmask)"/>
-
-    <!-- soft spotlight -->
-    <polygon class="breath" points="520,0 680,0 900,460 300,460" fill="url(#cone)"/>
-
-    <!-- eyebrow pill -->
-    <g class="sans rise" text-anchor="middle">
-      <rect x="414" y="58" width="372" height="32" rx="16" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.16"/>
-      <circle cx="436" cy="74" r="4" fill="#34A853"/>
-      <text x="611" y="79" font-size="12.5" font-weight="600" letter-spacing="2.6" fill="#D6DCEE">GOOGLE CLOUD AI BUILDER CUP 2026</text>
-    </g>
-
-    <!-- title -->
-    <g class="sans rise rise2" text-anchor="middle">
-      <text x="600" y="196" font-size="104" font-weight="700" letter-spacing="-3" fill="url(#title)">Understudy</text>
-    </g>
-
-    <!-- tagline -->
-    <g class="sans rise rise3" text-anchor="middle">
-      <text x="600" y="246" font-size="26" font-weight="400" fill="#AEB8D3">Show it once. Get automation you can trust.</text>
-    </g>
-
-    <!-- pipeline -->
-    <g class="sans rise rise4" text-anchor="middle">
-      <path d="M260 330 H940" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="2"/>
-      <path d="M260 330 H940" stroke="url(#line)" stroke-width="2" stroke-opacity="0.9"/>
-      <circle class="node n1" cx="260" cy="330" r="4.5" fill="#4285F4"/>
-      <circle class="node n2" cx="430" cy="330" r="4.5" fill="#FBBC04"/>
-      <circle class="node n3" cx="600" cy="330" r="4.5" fill="#34A853"/>
-      <circle class="node n4" cx="770" cy="330" r="4.5" fill="#EA4335"/>
-      <circle class="node n5" cx="940" cy="330" r="4.5" fill="#A78BFA"/>
-      <circle r="14" fill="url(#comet)" filter="url(#soft)">
-        <animateMotion dur="8s" repeatCount="indefinite" path="M260 330 H940" keyPoints="0;1;1" keyTimes="0;0.8;1" calcMode="linear"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.75;0.8;1" dur="8s" repeatCount="indefinite"/>
-      </circle>
-      <g font-size="12" font-weight="600" letter-spacing="3" fill="#8D97B5">
-        <text x="260" y="362">WATCH</text>
-        <text x="430" y="362">GOVERN</text>
-        <text x="600" y="362">BUILD</text>
-        <text x="770" y="362">EXECUTE</text>
-        <text x="940" y="362">EXPORT</text>
+    <!-- the performance -->
+    <g class="sans" text-anchor="middle">
+      <g class="rise r1">
+        <text x="600" y="104" font-size="12.5" font-weight="600" letter-spacing="4.5" fill="#E6C878">NOW PLAYING  ·  GOOGLE CLOUD AI BUILDER CUP 2026</text>
       </g>
-      <text x="600" y="420" font-size="13" letter-spacing="1.5" fill="#6B7594">Team JAAAR  ·  Gemini on Vertex AI  ·  Cloud Run</text>
+      <g class="rise r2">
+        <text x="600" y="208" font-size="100" font-weight="700" letter-spacing="-3" fill="url(#title)">Understudy</text>
+      </g>
+      <g class="rise r3">
+        <text x="600" y="256" font-size="24" fill="#B4BDD6">Watches you perform a task once. Then performs it - by the rules, with proof.</text>
+      </g>
+      <g class="rise r4">
+        <path d="M300 322 H900" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="2"/>
+        <path d="M300 322 H900" stroke="url(#line)" stroke-width="2"/>
+        <circle cx="300" cy="322" r="5" fill="#4285F4"/><circle cx="450" cy="322" r="5" fill="#FBBC04"/>
+        <circle cx="600" cy="322" r="5" fill="#34A853"/><circle cx="750" cy="322" r="5" fill="#EA4335"/>
+        <circle cx="900" cy="322" r="5" fill="#A78BFA"/>
+        <circle r="13" fill="url(#comet)" filter="url(#soft)">
+          <animateMotion dur="7s" begin="3.5s" repeatCount="indefinite" path="M300 322 H900" keyPoints="0;1;1" keyTimes="0;0.8;1" calcMode="linear"/>
+          <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.75;0.8;1" dur="7s" begin="3.5s" repeatCount="indefinite"/>
+        </circle>
+        <g font-size="11.5" font-weight="600" letter-spacing="3" fill="#8D97B5">
+          <text x="300" y="352">WATCH</text><text x="450" y="352">GOVERN</text><text x="600" y="352">BUILD</text>
+          <text x="750" y="352">EXECUTE</text><text x="900" y="352">EXPORT</text>
+        </g>
+        <text x="600" y="440" class="serif" font-size="16" font-style="italic" fill="#8D97B5">A production by Team JAAAR, starring Gemini on Vertex AI</text>
+      </g>
     </g>
 
-    <!-- hairline frame -->
-    <rect x="0.5" y="0.5" width="1199" height="459" rx="28" fill="none" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <!-- curtains -->
+    <g class="cl">
+      <path d="M0 0 H612 V466 Q306 480 0 470 Z" fill="url(#velvet)"/>
+      <path d="M0 0 H612 V466 Q306 480 0 470 Z" fill="url(#depth)"/>
+      <path d="M0 0 H612 V466 Q306 480 0 470 Z" fill="url(#sheenL)"/>
+    </g>
+    <g class="cr">
+      <path d="M588 0 H1200 V470 Q894 480 588 466 Z" fill="url(#velvet)"/>
+      <path d="M588 0 H1200 V470 Q894 480 588 466 Z" fill="url(#depth)"/>
+      <path d="M588 0 H1200 V470 Q894 480 588 466 Z" fill="url(#sheenR)"/>
+    </g>
+
+    <!-- gold tie-backs, appear once the curtains are gathered -->
+    <g class="light">
+      <rect x="-6" y="292" width="92" height="7" rx="3.5" fill="url(#gold)"/>
+      <circle cx="84" cy="296" r="6" fill="#E6C878"/>
+      <rect x="1114" y="292" width="92" height="7" rx="3.5" fill="url(#gold)"/>
+      <circle cx="1116" cy="296" r="6" fill="#E6C878"/>
+    </g>
+
+    <!-- valance with swags and a fine gold trim -->
+    <path d="M0 0 H1200 V30 H0 Z" fill="#3A0A15"/>
+    <path d="M0 30 Q100 66 200 30 Q300 66 400 30 Q500 66 600 30 Q700 66 800 30 Q900 66 1000 30 Q1100 66 1200 30 V0 H0 Z" fill="#4A0D1B"/>
+    <path d="M0 30 Q100 66 200 30 Q300 66 400 30 Q500 66 600 30 Q700 66 800 30 Q900 66 1000 30 Q1100 66 1200 30 V0 H0 Z" fill="url(#depth)" opacity="0.6"/>
+    <path d="M0 30 Q100 66 200 30 Q300 66 400 30 Q500 66 600 30 Q700 66 800 30 Q900 66 1000 30 Q1100 66 1200 30" fill="none" stroke="url(#gold)" stroke-width="1.6"/>
+    <g fill="#E6C878"><circle cx="200" cy="31" r="3"/><circle cx="400" cy="31" r="3"/><circle cx="600" cy="31" r="3"/><circle cx="800" cy="31" r="3"/><circle cx="1000" cy="31" r="3"/></g>
+
+    <rect x="0.5" y="0.5" width="1199" height="479" rx="28" fill="none" stroke="#FFFFFF" stroke-opacity="0.08"/>
   </g>
 </svg>
