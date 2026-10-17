@@ -9,7 +9,7 @@
 ![Gemini](https://img.shields.io/badge/Gemini-Vertex%20AI-4285F4?logo=googlegemini&logoColor=white)
 ![Cloud Run](https://img.shields.io/badge/runs%20on-Cloud%20Run-4285F4?logo=googlecloud&logoColor=white)
 ![Firestore](https://img.shields.io/badge/state-Firestore-FBBC04?logo=firebase&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-690%2B-34A853)
+![Tests](https://img.shields.io/badge/tests-855%20passing-34A853)
 ![Model Armor](https://img.shields.io/badge/guardrails-Model%20Armor-EA4335)
 
 ### Gemini watches you do a task once - and hands back automation that obeys your rules and proves it worked.
@@ -51,7 +51,7 @@
 
 | Criterion | Weight | Where to look |
 |---|---|---|
-| **Technical Merit & Gen AI** | 40% | 28 Gemini prompts in one registry → [`core/wizard/prompts.py`](core/wizard/prompts.py), verbatim in [ARCHITECTURE.md §8](ARCHITECTURE.md) · multimodal video understanding → [`watch.py`](core/wizard/watch.py) · build agent that proves locators on the live page → [`build_agent.py`](core/wizard/build_agent.py) · run-time Gemini agent → [`agent_runtime.py`](core/wizard/agent_runtime.py) · 690+ tests → [`tests/`](tests) |
+| **Technical Merit & Gen AI** | 40% | 28 Gemini prompts in one registry → [`core/wizard/prompts.py`](core/wizard/prompts.py), verbatim in [ARCHITECTURE.md §8](ARCHITECTURE.md) · multimodal video understanding → [`watch.py`](core/wizard/watch.py) · build agent that proves locators on the live page → [`build_agent.py`](core/wizard/build_agent.py) · run-time Gemini agent → [`agent_runtime.py`](core/wizard/agent_runtime.py) · 855 tests → [`tests/`](tests) |
 | **Problem Alignment & Impact** | 25% | [The problem](#-the-problem) · [Measured results](#-measured-not-claimed) · ledger-verified benchmark → [`scripts/benchmark.py`](scripts/benchmark.py) |
 | **Innovation & Creativity** | 25% | [What makes it different](#-what-makes-it-different) · SOP rules shipped *inside* every generated script → [`governance_runtime.py`](core/wizard/governance_runtime.py) · difficulty score that routes traditional vs agentic |
 | **User Experience & Design** | 10% | [Screens](#-screens) · five guided steps, video-timed evidence, one-click fixes, light/dark themes, separate admin console |
@@ -266,7 +266,7 @@ Try it: create a project and a session → tick **Use the sample invoice-entry v
 
 ```bash
 pip install -r requirements-dev.txt
-python -m pytest                         # 690+ tests
+python -m pytest                         # 855 tests
 python scripts/benchmark.py              # end-to-end, checks the ERP ledger itself
 python scripts/tool_matrix.py --live     # every catalog tool, real installs and runs
 ```
@@ -282,7 +282,7 @@ core/wizard/           the engine - watch, governance, build agent, executor, se
 understudy-ui/         Next.js 16 UI - Studio (/wizard) and Mission Control (/)
 erp/                   demo ERP portals used as automation targets
 scripts/               benchmark, tool matrix, GCP setup, deployment check, demo recorder
-tests/                 690+ unit, integration and end-to-end tests
+tests/                 855 unit, integration and end-to-end tests
 docs/                  guide, benchmark, tool matrix, pitch deck, screenshots, assets
 .github/               CI (tests, UI build, Cloud Run image), Dependabot, issue and PR templates
 deploy_cloudrun.*      one-command Cloud Run deployment (bash, PowerShell, batch)
