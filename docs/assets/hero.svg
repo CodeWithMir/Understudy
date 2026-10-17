@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="Understudy: Watch, Govern, Build, Execute, Export">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1020"/>
+      <stop offset="1" stop-color="#141C33"/>
+    </linearGradient>
+    <linearGradient id="track" gradientUnits="userSpaceOnUse" x1="140" y1="0" x2="1060" y2="0">
+      <stop offset="0" stop-color="#4285F4"/>
+      <stop offset="0.25" stop-color="#FBBC04"/>
+      <stop offset="0.5" stop-color="#34A853"/>
+      <stop offset="0.75" stop-color="#EA4335"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity="0.035"/>
+    </pattern>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+      .node{fill-opacity:.08;animation:pulse 10s infinite both}
+      .n1{animation-delay:0s}.n2{animation-delay:2.1s}.n3{animation-delay:4.25s}.n4{animation-delay:6.4s}.n5{animation-delay:8.5s}
+      @keyframes pulse{0%,100%{fill-opacity:.08}3%,14%{fill-opacity:.6}20%{fill-opacity:.08}}
+      .log{opacity:0;animation:show 10s infinite both}
+      .l1{animation-delay:0s}.l2{animation-delay:2.1s}.l3{animation-delay:4.25s}.l4{animation-delay:6.4s}.l5{animation-delay:8.5s}
+      @keyframes show{0%{opacity:0}2%,19%{opacity:1}21%,100%{opacity:0}}
+      .cursor{animation:blink 1s steps(1) infinite}
+      @keyframes blink{50%{opacity:0}}
+    </style>
+  </defs>
+
+  <rect width="1200" height="420" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="420" rx="24" fill="url(#grid)"/>
+
+  <text x="64" y="86" class="t" font-size="15" font-weight="700" letter-spacing="3" fill="#22D3EE">GOOGLE CLOUD AI BUILDER CUP 2026 · TEAM JAAAR</text>
+  <text x="62" y="152" class="t" font-size="64" font-weight="800" fill="#F3F5FA">Understudy</text>
+  <text x="64" y="194" class="t" font-size="24" fill="#9AA4BF">Show it once. Get automation you can trust.</text>
+
+  <!-- pipeline track -->
+  <path id="p" d="M140 300 H1060" stroke="#2A3352" stroke-width="6" stroke-linecap="round"/>
+  <path d="M140 300 H1060" stroke="url(#track)" stroke-width="6" stroke-linecap="round" stroke-dasharray="920" stroke-dashoffset="920">
+    <animate attributeName="stroke-dashoffset" values="920;0;0;920" keyTimes="0;0.85;0.97;1" dur="10s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- nodes -->
+  <g class="t" font-size="15" font-weight="700" text-anchor="middle">
+    <circle cx="140" cy="300" r="34" fill="#0F1529"/>
+    <circle class="node n1" cx="140" cy="300" r="34" fill="#4285F4" stroke="#4285F4" stroke-width="2.5"/>
+    <text x="140" y="306" fill="#F3F5FA">1</text>
+    <text x="140" y="364" fill="#F3F5FA" letter-spacing="2">WATCH</text>
+
+    <circle cx="370" cy="300" r="34" fill="#0F1529"/>
+    <circle class="node n2" cx="370" cy="300" r="34" fill="#FBBC04" stroke="#FBBC04" stroke-width="2.5"/>
+    <text x="370" y="306" fill="#F3F5FA">2</text>
+    <text x="370" y="364" fill="#F3F5FA" letter-spacing="2">GOVERN</text>
+
+    <circle cx="600" cy="300" r="34" fill="#0F1529"/>
+    <circle class="node n3" cx="600" cy="300" r="34" fill="#34A853" stroke="#34A853" stroke-width="2.5"/>
+    <text x="600" y="306" fill="#F3F5FA">3</text>
+    <text x="600" y="364" fill="#F3F5FA" letter-spacing="2">BUILD</text>
+
+    <circle cx="830" cy="300" r="34" fill="#0F1529"/>
+    <circle class="node n4" cx="830" cy="300" r="34" fill="#EA4335" stroke="#EA4335" stroke-width="2.5"/>
+    <text x="830" y="306" fill="#F3F5FA">4</text>
+    <text x="830" y="364" fill="#F3F5FA" letter-spacing="2">EXECUTE</text>
+
+    <circle cx="1060" cy="300" r="34" fill="#0F1529"/>
+    <circle class="node n5" cx="1060" cy="300" r="34" fill="#A78BFA" stroke="#A78BFA" stroke-width="2.5"/>
+    <text x="1060" y="306" fill="#F3F5FA">5</text>
+    <text x="1060" y="364" fill="#F3F5FA" letter-spacing="2">EXPORT</text>
+  </g>
+
+  <!-- travelling spark -->
+  <circle r="16" fill="url(#glow)">
+    <animateMotion dur="10s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.85;1" calcMode="linear" path="M140 300 H1060"/>
+  </circle>
+
+  <!-- live log ticker -->
+  <rect x="700" y="112" width="436" height="92" rx="12" fill="#0B1020" stroke="#2A3352"/>
+  <circle cx="722" cy="132" r="5" fill="#EA4335"/><circle cx="740" cy="132" r="5" fill="#FBBC04"/><circle cx="758" cy="132" r="5" fill="#34A853"/>
+  <g class="mono" font-size="15">
+    <text x="722" y="178" fill="#9AA4BF">$</text>
+    <text class="log l1" x="742" y="178" fill="#4285F4">WATCH  5 steps · 4/4 on live page</text>
+    <text class="log l2" x="742" y="178" fill="#FBBC04">GOVERN 7,500 &gt; 5,000 · BLOCKED</text>
+    <text class="log l3" x="742" y="178" fill="#34A853">BUILD  locators proven · 2 loads</text>
+    <text class="log l4" x="742" y="178" fill="#EA4335">STEP 1-5 OK · COMPLETE in 3.5 s</text>
+    <text class="log l5" x="742" y="178" fill="#A78BFA">EXPORT ✓ ledger TRX-1002 · .zip</text>
+    <rect class="cursor" x="1100" y="164" width="9" height="18" fill="#22D3EE"/>
+  </g>
+</svg>

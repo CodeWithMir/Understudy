@@ -1,0 +1,30 @@
+name: Bug report
+description: Something in Understudy did not work as expected
+labels: [bug]
+body:
+  - type: dropdown
+    id: step
+    attributes:
+      label: Where did it happen?
+      options: [1 Watch, 2 Govern, 3 Build, 4 Execute, 5 Export, Mission Control, Deployment / setup]
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Create a session  2. Use the sample video  3. ..."
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Cloud Run / Docker / native · Vertex AI / AI Studio / offline · tool + version"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Telemetry or log excerpt (remove secrets)
+      render: text

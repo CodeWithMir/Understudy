@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest a process, tool or capability Understudy should support
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Which process or problem is this about?
+    validations: { required: true }
+  - type: textarea
+    id: idea
+    attributes:
+      label: What should Understudy do?
+    validations: { required: true }
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [Watch / video understanding, Govern / SOP rules, Build / code generation, Execute / self-healing, Agentic automation, Mission Control, Google Cloud deployment]
