@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root { --bg:#030712; --panel:#0b1220; --line:#1e293b; --muted:#94a3b8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:100%; height:100%; background:var(--bg); color:#f8fafc; font-family:Inter, sans-serif; overflow:hidden; }
+  body { display:flex; align-items:center; justify-content:center; text-align:center; }
+  .glow { position:absolute; inset:-25%; background:
+      radial-gradient(40% 30% at 30% 30%, rgba(56,189,248,.22), transparent 70%),
+      radial-gradient(35% 30% at 72% 70%, rgba(45,212,191,.18), transparent 70%);
+      animation: drift 6s ease-in-out infinite alternate; }
+  @keyframes drift { to { transform: translate(4%, -3%) scale(1.08); } }
+  .grid { position:absolute; inset:0; background-image:linear-gradient(rgba(148,163,184,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148,163,184,.06) 1px, transparent 1px); background-size:72px 72px;
+      mask-image: radial-gradient(70% 60% at 50% 50%, #000 30%, transparent 100%); }
+  .card { position:relative; display:none; padding:0 6vw; }
+  .show { display:block; }
+  .pop { opacity:0; transform:translateY(40px) scale(.96); animation: pop .55s cubic-bezier(.2,.9,.2,1.15) forwards; }
+  @keyframes pop { to { opacity:1; transform:none; } }
+  .strike { position:relative; display:inline-block; }
+  .strike::after { content:""; position:absolute; left:-2%; right:-2%; top:52%; height:.09em; background:#fb7185;
+      transform:scaleX(0); transform-origin:left; animation: strike .45s ease-out forwards; animation-delay: var(--sd, 2s); }
+  @keyframes strike { to { transform:scaleX(1); } }
+  .big { font-weight:800; letter-spacing:-.04em; line-height:1.02; }
+  .grad { background:linear-gradient(90deg,#7dd3fc,#5eead4); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .logo { display:inline-flex; align-items:center; justify-content:center; border-radius:24%; background:linear-gradient(135deg,#0ea5e9,#14b8a6);
+          font-weight:800; color:#fff; box-shadow:0 20px 70px rgba(14,165,233,.45); }
+  .muted { color:var(--muted); }
+  .stat { display:flex; align-items:baseline; gap:.5em; justify-content:center; }
+  .chip { display:inline-block; padding:.45em .9em; border-radius:.8em; border:1px solid var(--line); background:var(--panel); color:#e2e8f0; margin:.25em; }
+  /* horizontal */
+  body.h .t1 { font-size:132px; } body.h .t2 { font-size:72px; } body.h .t3 { font-size:40px; } body.h .t4 { font-size:26px; }
+  body.h .logo { width:150px; height:150px; font-size:86px; }
+  /* vertical */
+  body.v .t1 { font-size:150px; } body.v .t2 { font-size:76px; } body.v .t3 { font-size:50px; } body.v .t4 { font-size:32px; }
+  body.v .logo { width:190px; height:190px; font-size:108px; }
+  .sp { height:.6em; }
+  .vb { display:none; } body.v .vb { display:inline; }
+</style></head>
+<body>
+<div class="glow"></div><div class="grid"></div>
+
+<div class="card" id="hook1">
+  <div class="big t1 pop" style="animation-delay:.15s">Your team<br class="vb"> does it</div>
+  <div class="big t1 pop" style="animation-delay:.45s"><span class="grad">by hand.</span></div>
+  <div class="sp"></div>
+  <div class="t2 pop muted" style="animation-delay:1.6s; font-weight:700">Every. Single. Day.</div>
+</div>
+
+<div class="card" id="hook2">
+  <div class="big t1 pop" style="animation-delay:.1s">Show it <span class="grad">once.</span></div>
+  <div class="sp"></div>
+  <div class="t2 pop" style="animation-delay:1.1s; font-weight:700">Understudy builds the automation &mdash;</div>
+  <div class="t2 pop" style="animation-delay:1.6s; font-weight:700"><span class="grad">tested, governed, yours.</span></div>
+</div>
+
+<div class="card" id="stats">
+  <div class="t2 pop" style="animation-delay:.1s; font-weight:800">Measured, <span class="grad">not claimed.</span></div>
+  <div class="sp"></div><div class="sp"></div>
+  <div class="pop" style="animation-delay:.7s"><div class="big t1 grad">12 / 12</div><div class="t3 muted">benchmark runs behave as expected</div></div>
+  <div class="sp"></div>
+  <div class="pop" style="animation-delay:1.9s"><div class="big t1 grad">0</div><div class="t3 muted">ledger changes when your rules say no</div></div>
+  <div class="sp"></div>
+  <div class="pop" style="animation-delay:3.1s"><div class="big t1 grad">5 / 5</div><div class="t3 muted">steps from one 16-second recording</div></div>
+</div>
+
+<div class="card" id="end">
+  <div class="pop" style="animation-delay:.1s"><span class="logo">U</span></div>
+  <div class="sp"></div>
+  <div class="big t1 pop" style="animation-delay:.5s">Understudy</div>
+  <div class="sp"></div>
+  <div class="t2 pop" style="animation-delay:1.1s; font-weight:700">Watch once.<br class="vb"> <span class="grad">Automate safely.</span></div>
+  <div class="sp"></div><div class="sp"></div>
+  <div class="t3 pop" style="animation-delay:1.9s"><span class="chip">Gemini</span><span class="chip">Cloud Run</span><span class="chip">Model Armor</span><span class="chip">Playwright &middot; Selenium &middot; Cypress</span></div>
+  <div class="sp"></div><div class="sp"></div>
+  <div class="t4 pop muted" style="animation-delay:2.8s; max-width:1300px; margin:0 auto; line-height:1.45">Demo recorded offline: a clearly labelled stand-in model answered in Gemini's place.</div>
+</div>
+
+<script>
+  const q = new URLSearchParams(location.search);
+  document.body.classList.add(q.get('o') || 'h');
+  document.getElementById(q.get('card') || 'hook1').classList.add('show');
+</script>
+</body></html>

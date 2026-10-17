@@ -1,0 +1,106 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  :root { --bg:#030712; --panel:#0b1220; --line:#1e293b; --text:#f8fafc; --muted:#94a3b8; --sky:#38bdf8; --teal:#2dd4bf; --amber:#fbbf24; --red:#fb7185; --green:#34d399; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:100%; height:100%; background:var(--bg); color:var(--text); font-family:Inter, sans-serif; overflow:hidden; }
+  body { display:flex; align-items:center; justify-content:center; }
+  .glow { position:absolute; inset:-20%; background:
+      radial-gradient(40% 35% at 25% 30%, rgba(56,189,248,.16), transparent 70%),
+      radial-gradient(35% 30% at 78% 72%, rgba(45,212,191,.13), transparent 70%);
+      animation: drift 14s ease-in-out infinite alternate; }
+  @keyframes drift { to { transform: translate(3%, -2%) scale(1.05); } }
+  .grid { position:absolute; inset:0; background-image:linear-gradient(rgba(148,163,184,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148,163,184,.05) 1px, transparent 1px); background-size:64px 64px;
+      mask-image: radial-gradient(70% 70% at 50% 50%, #000 40%, transparent 100%); }
+  .card { position:relative; width:var(--w,1600px); display:none; }
+  .show { display:block; }
+  .up { opacity:0; transform:translateY(24px); animation: up .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes up { to { opacity:1; transform:none; } }
+  .logo { width:120px; height:120px; border-radius:30px; background:linear-gradient(135deg,#0ea5e9,#14b8a6);
+          display:flex; align-items:center; justify-content:center; font-size:68px; font-weight:800; color:#fff;
+          box-shadow:0 20px 60px rgba(14,165,233,.35); }
+  h1 { font-size:132px; font-weight:800; letter-spacing:-4px; line-height:1; }
+  .grad { background:linear-gradient(90deg,#7dd3fc,#5eead4); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .tag { font-size:54px; font-weight:600; letter-spacing:-1px; }
+  .sub { font-size:34px; color:var(--muted); line-height:1.45; }
+  .pill { display:inline-flex; gap:12px; align-items:center; padding:12px 22px; border:1px solid var(--line); border-radius:999px;
+          color:var(--muted); font-size:24px; background:rgba(15,23,42,.6); }
+  .steps { display:grid; grid-template-columns:repeat(5,1fr); gap:22px; margin-top:56px; }
+  .step { background:var(--panel); border:1px solid var(--line); border-radius:24px; padding:30px 26px; min-height:250px; }
+  .step .n { width:54px; height:54px; border-radius:16px; display:flex; align-items:center; justify-content:center;
+             font-weight:800; font-size:26px; background:rgba(56,189,248,.14); color:var(--sky); }
+  .step h3 { font-size:38px; margin:22px 0 10px; letter-spacing:-.5px; }
+  .step p { font-size:23px; color:var(--muted); line-height:1.4; }
+  .step.lit { border-color:rgba(56,189,248,.55); box-shadow:0 0 0 1px rgba(56,189,248,.25), 0 18px 50px rgba(14,165,233,.18); }
+  .row { display:flex; gap:24px; align-items:center; }
+  .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:48px; }
+  .stat { background:var(--panel); border:1px solid var(--line); border-radius:26px; padding:34px 38px; }
+  .stat .big { font-size:84px; font-weight:800; letter-spacing:-2px; }
+  .stat .lbl { font-size:28px; color:#cbd5e1; margin-top:6px; line-height:1.35; }
+  .foot { font-size:22px; color:#64748b; margin-top:34px; line-height:1.5; }
+  .note { margin-top:46px; padding:24px 30px; border-radius:20px; border:1px solid rgba(251,191,36,.35); background:rgba(251,191,36,.07);
+          color:#fde68a; font-size:25px; line-height:1.5; }
+  .chips { display:flex; gap:16px; flex-wrap:wrap; margin-top:40px; }
+  .chip { padding:14px 24px; border-radius:16px; border:1px solid var(--line); background:var(--panel); font-size:28px; color:#e2e8f0; }
+</style></head>
+<body>
+<div class="glow"></div><div class="grid"></div>
+
+<!-- TITLE -->
+<div class="card" id="title" style="--w:1500px">
+  <div class="row up" style="animation-delay:.2s"><div class="logo">U</div><h1>Understudy</h1></div>
+  <div class="tag up" style="margin-top:46px; animation-delay:.9s">Watch once. <span class="grad">Automate safely.</span></div>
+  <div class="sub up" style="margin-top:26px; max-width:1250px; animation-delay:1.5s">One screen recording + your rules in plain English
+    &rarr; tested, governed automation you can download and keep.</div>
+  <div class="up" style="margin-top:56px; animation-delay:2.2s"><span class="pill">Live product walkthrough &middot; Understudy 9.5.2</span></div>
+</div>
+
+<!-- STEPS -->
+<div class="card" id="steps" style="--w:1700px">
+  <div class="tag up" style="font-size:64px">Five steps. <span class="grad">One recording.</span></div>
+  <div class="steps">
+    <div class="step up" style="animation-delay:.6s"><div class="n">1</div><h3>Watch</h3><p>Gemini reads the recording; the live page confirms every element</p></div>
+    <div class="step up" style="animation-delay:1.2s"><div class="n">2</div><h3>Build</h3><p>Code in your tool, values in payload.json, locators verified</p></div>
+    <div class="step up" style="animation-delay:1.8s"><div class="n">3</div><h3>Govern</h3><p>Your SOP becomes checks that block before anything runs</p></div>
+    <div class="step up" style="animation-delay:2.4s"><div class="n">4</div><h3>Execute</h3><p>Runs for real, in a restricted network, and heals itself</p></div>
+    <div class="step up" style="animation-delay:3.0s"><div class="n">5</div><h3>Export</h3><p>A ZIP with code, rules, compliance report and evidence</p></div>
+  </div>
+  <div class="chips up" style="animation-delay:4.2s">
+    <div class="chip">Gemini understands</div><div class="chip">Deterministic checks decide</div><div class="chip">Model Armor screens every input</div>
+  </div>
+</div>
+
+<!-- BENCH -->
+<div class="card" id="bench" style="--w:1600px">
+  <div class="tag up" style="font-size:64px">Measured, <span class="grad">not claimed.</span></div>
+  <div class="stats">
+    <div class="stat up" style="animation-delay:.8s"><div class="big grad">12 / 12</div><div class="lbl">benchmark runs behave as expected</div></div>
+    <div class="stat up" style="animation-delay:1.6s"><div class="big grad">9 / 9</div><div class="lbl">automations pass on two different portals</div></div>
+    <div class="stat up" style="animation-delay:2.4s"><div class="big grad">Healed</div><div class="lbl">a redesigned page, automatically &mdash; the fix becomes a learned skill</div></div>
+    <div class="stat up" style="animation-delay:3.2s"><div class="big grad">3 / 3</div><div class="lbl">over-limit invoices blocked &middot; 0 ledger changes &middot; 0 duplicates</div></div>
+  </div>
+  <div class="foot up" style="animation-delay:4.2s">scripts/benchmark.py &middot; offline mode, no AI &middot; Playwright 1.56 &middot; bundled demo ERP &middot; every run checked against the ledger &middot; docs/BENCHMARK.md</div>
+</div>
+
+<!-- CLOSING -->
+<div class="card" id="closing" style="--w:1500px">
+  <div class="row up" style="animation-delay:.2s"><div class="logo" style="width:96px;height:96px;font-size:54px;border-radius:24px">U</div>
+    <div class="tag" style="font-size:76px">Watch once. <span class="grad">Automate safely.</span></div></div>
+  <div class="chips up" style="animation-delay:1s">
+    <div class="chip">Cloud Run</div><div class="chip">Gemini on Vertex AI or AI Studio</div><div class="chip">Firestore</div><div class="chip">Google Cloud Model Armor</div>
+  </div>
+  <div class="note up" style="animation-delay:2s">Honesty note: the recording machine had no internet, so a clearly labelled offline stand-in model
+    answered in Gemini's place (shown as &ldquo;stand-in model (no internet)&rdquo; in the app). Everything else &mdash; the page checks,
+    rules, compliance, the run and the export &mdash; is the shipped product.</div>
+</div>
+
+<script>
+  const id = new URLSearchParams(location.search).get('card') || 'title';
+  document.getElementById(id).classList.add('show');
+  if (id === 'steps') {
+    const s = [...document.querySelectorAll('#steps .step')];
+    s.forEach((el, i) => setTimeout(() => el.classList.add('lit'), 1000 + i * 600));
+  }
+</script>
+</body></html>

@@ -1,0 +1,18 @@
+# Understudy - Google Cloud credentials for the Docker backend (Vertex AI, Firestore, Cloud Storage).
+#
+# deploy_docker.sh / deploy_docker.bat add this file automatically when .env switches on Vertex AI, Firestore or a
+# Cloud Storage bucket. By hand:
+#   docker compose -f docker-compose.yml -f docker-compose.gcp.yml up --build -d
+#
+# UNDERSTUDY_GCP_CREDENTIALS_FILE is the credentials file on YOUR machine, mounted read-only:
+#   * your own login (after `gcloud auth application-default login`):
+#       Linux/macOS  ~/.config/gcloud/application_default_credentials.json
+#       Windows      %APPDATA%\gcloud\application_default_credentials.json
+#   * or a service-account key file (GOOGLE_APPLICATION_CREDENTIALS) - keep it out of the repository
+# The deploy scripts fill it in for you. It is never copied into the image.
+services:
+  understudy-backend:
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/run/secrets/gcp-credentials.json
+    volumes:
+      - ${UNDERSTUDY_GCP_CREDENTIALS_FILE:?set UNDERSTUDY_GCP_CREDENTIALS_FILE to your credentials file}:/run/secrets/gcp-credentials.json:ro

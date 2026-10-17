@@ -1,0 +1,432 @@
+{
+  "version": "9.5.0",
+  "framework": "playwright-python",
+  "tool_version": "1.56.0",
+  "runs": 3,
+  "started_at": "2026-10-08T04:10:23Z",
+  "python": "3.13.16",
+  "scenarios": [
+    {
+      "scenario": "clean",
+      "runs": 3,
+      "passed": 3,
+      "pass_rate": 1.0,
+      "first_run_pass": 3,
+      "healed": 0,
+      "passed_via_learned_skill": 0,
+      "retries_total": 0,
+      "blocked": 0,
+      "duplicates": 0,
+      "ledger_changes": 3,
+      "median_total_s": 3.78,
+      "median_stage_s": {
+        "watch": 0.03,
+        "setup": 0.09,
+        "build": 0.02,
+        "govern": 0.02,
+        "execute_export": 3.6
+      },
+      "ai_mode": "LOCAL_HEURISTIC",
+      "details": [
+        {
+          "session_id": "wiz-73af356c17",
+          "govern": "PASS",
+          "marker": "BENCH-432624931",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 0,
+          "heal": null,
+          "first_run_pass": true,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 0,
+          "timings": {
+            "watch": 0.162431001663208,
+            "setup": 0.09251117706298828,
+            "build": 0.022637605667114258,
+            "govern": 0.014134645462036133,
+            "execute_export": 5.429492235183716
+          },
+          "total_s": 5.750662326812744
+        },
+        {
+          "session_id": "wiz-fdc9b63dcd",
+          "govern": "PASS",
+          "marker": "BENCH-432630541",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 0,
+          "heal": null,
+          "first_run_pass": true,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 0,
+          "timings": {
+            "watch": 0.02625751495361328,
+            "setup": 0.08820199966430664,
+            "build": 0.021074533462524414,
+            "govern": 0.016474246978759766,
+            "execute_export": 3.6003243923187256
+          },
+          "total_s": 3.782437562942505
+        },
+        {
+          "session_id": "wiz-01937707e3",
+          "govern": "PASS",
+          "marker": "BENCH-432634315",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 0,
+          "heal": null,
+          "first_run_pass": true,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 0,
+          "timings": {
+            "watch": 0.02220892906188965,
+            "setup": 0.08350872993469238,
+            "build": 0.01988530158996582,
+            "govern": 0.016935110092163086,
+            "execute_export": 3.601585865020752
+          },
+          "total_s": 3.775149345397949
+        }
+      ]
+    },
+    {
+      "scenario": "modern_portal",
+      "runs": 3,
+      "passed": 3,
+      "pass_rate": 1.0,
+      "first_run_pass": 3,
+      "healed": 0,
+      "passed_via_learned_skill": 0,
+      "retries_total": 0,
+      "blocked": 0,
+      "duplicates": 0,
+      "ledger_changes": 3,
+      "median_total_s": 3.77,
+      "median_stage_s": {
+        "watch": 0.03,
+        "setup": 0.08,
+        "build": 0.02,
+        "govern": 0.02,
+        "execute_export": 3.6
+      },
+      "ai_mode": "LOCAL_HEURISTIC",
+      "details": [
+        {
+          "session_id": "wiz-f6961fb1ac",
+          "govern": "PASS",
+          "marker": "BENCH-432638096",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 0,
+          "heal": null,
+          "first_run_pass": true,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 0,
+          "timings": {
+            "watch": 0.030568361282348633,
+            "setup": 0.08079242706298828,
+            "build": 0.018603801727294922,
+            "govern": 0.017256736755371094,
+            "execute_export": 3.589869737625122
+          },
+          "total_s": 3.766439437866211
+        },
+        {
+          "session_id": "wiz-5280b66278",
+          "govern": "PASS",
+          "marker": "BENCH-432641872",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 0,
+          "heal": null,
+          "first_run_pass": true,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 0,
+          "timings": {
+            "watch": 0.03176259994506836,
+            "setup": 0.08863639831542969,
+            "build": 0.02180027961730957,
+            "govern": 0.01662445068359375,
+            "execute_export": 3.600486993789673
+          },
+          "total_s": 3.792100429534912
+        },
+        {
+          "session_id": "wiz-02455ca3ec",
+          "govern": "PASS",
+          "marker": "BENCH-432645646",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 0,
+          "heal": null,
+          "first_run_pass": true,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 0,
+          "timings": {
+            "watch": 0.028403043746948242,
+            "setup": 0.07407999038696289,
+            "build": 0.016687393188476562,
+            "govern": 0.013453483581542969,
+            "execute_export": 3.600921869277954
+          },
+          "total_s": 3.761794090270996
+        }
+      ]
+    },
+    {
+      "scenario": "selector_drift",
+      "runs": 3,
+      "passed": 3,
+      "pass_rate": 1.0,
+      "first_run_pass": 2,
+      "healed": 1,
+      "passed_via_learned_skill": 2,
+      "retries_total": 1,
+      "blocked": 0,
+      "duplicates": 0,
+      "ledger_changes": 3,
+      "median_total_s": 3.83,
+      "median_stage_s": {
+        "watch": 0.03,
+        "setup": 0.09,
+        "build": 0.02,
+        "govern": 0.02,
+        "execute_export": 3.61
+      },
+      "ai_mode": "LOCAL_HEURISTIC",
+      "details": [
+        {
+          "session_id": "wiz-55d15782f4",
+          "govern": "PASS",
+          "marker": "BENCH-432649418",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 1,
+          "heal": "SELECTOR_DRIFT",
+          "first_run_pass": false,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 0,
+          "timings": {
+            "watch": 0.026205062866210938,
+            "setup": 0.08606600761413574,
+            "build": 0.021431446075439453,
+            "govern": 0.01566004753112793,
+            "execute_export": 4.694898366928101
+          },
+          "total_s": 4.876116037368774
+        },
+        {
+          "session_id": "wiz-b8353bbc80",
+          "govern": "PASS",
+          "marker": "BENCH-432654298",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 0,
+          "heal": null,
+          "first_run_pass": true,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 1,
+          "timings": {
+            "watch": 0.026887893676757812,
+            "setup": 0.08914756774902344,
+            "build": 0.018162012100219727,
+            "govern": 0.015871763229370117,
+            "execute_export": 3.595099687576294
+          },
+          "total_s": 3.776859760284424
+        },
+        {
+          "session_id": "wiz-da5d395e2e",
+          "govern": "PASS",
+          "marker": "BENCH-432658087",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": true,
+          "pillars": {
+            "WATCH": "PASS",
+            "BUILD": "PASS",
+            "GOVERN": "PASS",
+            "BUILD-EXECUTE": "PASS",
+            "EXPORT": "PASS"
+          },
+          "retries": 0,
+          "heal": null,
+          "first_run_pass": true,
+          "ledger_delta": 1,
+          "marker_records": 1,
+          "zip_ready": true,
+          "skills_applied": 1,
+          "timings": {
+            "watch": 0.034186363220214844,
+            "setup": 0.09379696846008301,
+            "build": 0.02646613121032715,
+            "govern": 0.02108454704284668,
+            "execute_export": 3.6094844341278076
+          },
+          "total_s": 3.8251330852508545
+        }
+      ]
+    },
+    {
+      "scenario": "policy_block",
+      "runs": 3,
+      "passed": 3,
+      "pass_rate": 1.0,
+      "first_run_pass": 0,
+      "healed": 0,
+      "passed_via_learned_skill": 0,
+      "retries_total": 0,
+      "blocked": 3,
+      "duplicates": 0,
+      "ledger_changes": 0,
+      "median_total_s": 0.22,
+      "median_stage_s": {
+        "watch": 0.03,
+        "setup": 0.11,
+        "build": 0.02,
+        "govern": 0.02,
+        "execute_export": 0.0
+      },
+      "ai_mode": "LOCAL_HEURISTIC",
+      "details": [
+        {
+          "session_id": "wiz-4289972d4d",
+          "govern": "FAIL",
+          "marker": "BENCH-432661932",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": false,
+          "blocked": true,
+          "ledger_delta": 0,
+          "retries": 0,
+          "timings": {
+            "watch": 0.037053823471069336,
+            "setup": 0.11006999015808105,
+            "build": 0.020529508590698242,
+            "govern": 0.01845836639404297
+          },
+          "total_s": 0.21974778175354004
+        },
+        {
+          "session_id": "wiz-c8704021b9",
+          "govern": "FAIL",
+          "marker": "BENCH-432662149",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": false,
+          "blocked": true,
+          "ledger_delta": 0,
+          "retries": 0,
+          "timings": {
+            "watch": 0.030176877975463867,
+            "setup": 0.11299991607666016,
+            "build": 0.022729158401489258,
+            "govern": 0.018954753875732422
+          },
+          "total_s": 0.21940994262695312
+        },
+        {
+          "session_id": "wiz-a4976b6ad8",
+          "govern": "FAIL",
+          "marker": "BENCH-432662351",
+          "ai_mode": "LOCAL_HEURISTIC",
+          "passed": false,
+          "blocked": true,
+          "ledger_delta": 0,
+          "retries": 0,
+          "timings": {
+            "watch": 0.023949146270751953,
+            "setup": 0.10172891616821289,
+            "build": 0.02357959747314453,
+            "govern": 0.017750263214111328
+          },
+          "total_s": 0.19646048545837402
+        }
+      ]
+    },
+    {
+      "scenario": "model_armor",
+      "attacks": 10,
+      "attacks_blocked": 10,
+      "block_rate": 1.0,
+      "benign": 10,
+      "false_positives": 0,
+      "false_positive_rate": 0.0,
+      "missed": [],
+      "wrongly_blocked": [],
+      "median_ms_per_input": 0.08
+    }
+  ],
+  "ai_mode": "LOCAL_HEURISTIC",
+  "total_s": 39.014281272888184
+}

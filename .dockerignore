@@ -1,0 +1,43 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Web UI - dependencies and builds are made inside the image
+understudy-ui/node_modules/
+understudy-ui/.next/
+understudy-ui/out/
+understudy-ui/.git/
+
+# OS / editor / temporary
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Secrets must never be baked into image layers
+.env
+.env.*
+!.env.example
+*.pem
+*-credentials.json
+application_default_credentials.json
+
+# Runtime state (sessions, tool environments, uploads, learned skills) never goes into an image
+generated/**
+!generated/.gitkeep
+uploads/**
+!uploads/.gitkeep
+skills/*
+!skills/README.md
+schema.json

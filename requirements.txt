@@ -1,0 +1,25 @@
+# Understudy - runtime dependencies (Python 3.10+)
+# Browser binaries are NOT installed by pip. After installing, run:  python -m playwright install chromium
+# (setup.sh / setup.bat and the Docker images do both). Every package below is imported by the application.
+
+# Web API & server (server.py, core/wizard/*_api.py, erp/mock_erp.py)
+fastapi>=0.110.0,<1.0.0
+uvicorn[standard]>=0.28.0,<1.0.0      # [standard] also provides the WebSocket transport (live events)
+pydantic>=2.6.4,<3.0.0
+python-multipart>=0.0.9               # FastAPI UploadFile / Form (Step 1 recording upload)
+
+# Google Gemini - Understudy's agents use Google's current Gen AI SDK, on AI Studio (API key) or on Vertex AI
+# (Application Default Credentials, GOOGLE_GENAI_USE_VERTEXAI=true). See core/wizard/gemini.py.
+google-genai>=1.0.0,<3.0.0
+
+# Google Cloud (optional - Firestore state, Cloud Storage recordings): pip install -r requirements-gcp.txt
+
+# Outbound HTTP (page discovery, registry version lists, runtime downloads) and exact version checks
+requests>=2.31.0,<3.0.0
+packaging>=23.0
+
+# Browser automation (live page probe, page discovery of JavaScript-built pages, the built-in reference driver)
+playwright>=1.42.0
+
+# Unpacks RubyInstaller .7z archives on Windows (optional - Windows 10+ tar is the fallback)
+py7zr>=0.21

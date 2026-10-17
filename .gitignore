@@ -1,0 +1,47 @@
+# Secrets - never commit real credentials
+.env
+.env.*
+!.env.example
+*.pem
+*-credentials.json
+application_default_credentials.json
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Web UI (Next.js) - dependencies and builds
+understudy-ui/node_modules/
+understudy-ui/.next/
+understudy-ui/out/
+understudy-ui/next-env.d.ts
+understudy-ui/*.tsbuildinfo
+
+# Runtime state written by Understudy (sessions, store, tool environments, runtimes, mail outbox, benchmark reports,
+# code-health backups, escalation files, uploaded recordings)
+generated/*
+!generated/.gitkeep
+uploads/*
+!uploads/.gitkeep
+# written by the orchestration layer's WATCH helper when it runs
+schema.json
+
+# Learned skills written by Understudy at runtime
+skills/*
+!skills/README.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+*.swp

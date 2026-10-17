@@ -1,0 +1,5 @@
+# Understudy - development / test dependencies:  pip install -r requirements-dev.txt  then  python -m pytest
+-r requirements-gcp.txt
+pytest>=8.0
+httpx>=0.27.0            # fastapi.testclient.TestClient
+selenium>=4.25  # 9.9: the agent's Selenium driver tests (skipped without it)

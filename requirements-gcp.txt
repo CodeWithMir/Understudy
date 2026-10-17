@@ -1,0 +1,6 @@
+# Understudy - optional Google Cloud integrations (installed by setup.sh / setup.bat and every Docker image)
+#   UNDERSTUDY_STORE=firestore     sessions, admin policy, learned skills, telemetry and admin logins in Cloud Firestore
+#   UNDERSTUDY_GCS_BUCKET=<bucket> recordings for Vertex AI video understanding go through Cloud Storage (gs://)
+-r requirements.txt
+google-cloud-firestore>=2.16.0,<3.0.0
+google-cloud-storage>=2.16.0,<4.0.0

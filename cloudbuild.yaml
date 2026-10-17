@@ -1,0 +1,53 @@
+# Understudy - Cloud Build: build the single-container image (Dockerfile.cloudrun) and deploy it to Cloud Run.
+#   gcloud builds submit --config cloudbuild.yaml \
+#     --substitutions=_REGION=us-central1,_BUCKET=<recordings-bucket>,_SA=understudy-run@<project>.iam.gserviceaccount.com
+# deploy_cloudrun.sh / .ps1 does the one-time setup (APIs, Firestore, bucket, service account, roles and the admin-password
+# secret "understudy-admin-password" in Secret Manager) - run it once before using this file in CI.
+substitutions:
+  _REGION: us-central1
+  _SERVICE: understudy
+  _REPO: understudy
+  _BUCKET: ""
+  _SA: ""
+  _MAX_INSTANCES: "3"
+  # self-signup on the public URL: off unless you opt in (Mission Control > Users can switch it later)
+  _SIGNUP: "off"
+  # Mission Control password from Secret Manager (created by the deploy script) - never the published default
+  _ADMIN_SECRET: understudy-admin-password
+images:
+  - ${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/understudy:${BUILD_ID}
+steps:
+  - id: build
+    name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "Dockerfile.cloudrun", "-t", "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/understudy:${BUILD_ID}", "."]
+  - id: push
+    name: gcr.io/cloud-builders/docker
+    args: ["push", "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/understudy:${BUILD_ID}"]
+  - id: deploy
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE}
+      - --image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/understudy:${BUILD_ID}
+      - --region=${_REGION}
+      - --service-account=${_SA}
+      - --allow-unauthenticated
+      - --port=8080
+      # automations keep running after the HTTP request that started them returns -> CPU always allocated
+      - --no-cpu-throttling
+      - --cpu=2
+      - --memory=4Gi
+      - --timeout=3600
+      - --concurrency=20
+      - --min-instances=1
+      - --max-instances=${_MAX_INSTANCES}
+      # a user's polling requests stick to the instance running their job; state is in Firestore either way
+      - --session-affinity
+      - --execution-environment=gen2
+      - --update-env-vars=GOOGLE_GENAI_USE_VERTEXAI=true,GOOGLE_CLOUD_PROJECT=${PROJECT_ID},GOOGLE_CLOUD_LOCATION=${_REGION},UNDERSTUDY_STORE=firestore,UNDERSTUDY_GCS_BUCKET=${_BUCKET},UNDERSTUDY_SIGNUP=${_SIGNUP}
+      - --update-secrets=UNDERSTUDY_ADMIN_PASSWORD=${_ADMIN_SECRET}:latest
+      - --liveness-probe=httpGet.path=/healthz,periodSeconds=30,failureThreshold=3
+      - --startup-probe=httpGet.path=/healthz,periodSeconds=5,failureThreshold=24
+timeout: 3600s

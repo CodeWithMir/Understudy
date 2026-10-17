@@ -1,0 +1,67 @@
+# ==============================================================================
+# UNDERSTUDY - GOOGLE CLOUD RUN IMAGE (one container, one public URL)
+#
+#   browser --https--> Cloud Run :$PORT  Next.js (Understudy /wizard, Mission Control /)
+#                                          | rewrites /api/*, /portal1-3, /healthz  (same origin, no CORS)
+#                                          v
+#                                  127.0.0.1:8000  FastAPI backend (never exposed directly)
+#                                          |-- Gemini on Vertex AI (service account, no API key)
+#                                          |-- Cloud Firestore (sessions, admin policy, skills, telemetry, logins)
+#                                          '-- Cloud Storage (recordings; Vertex AI reads them from gs://)
+#
+# Build + deploy: ./deploy_cloudrun.sh <project-id> [region]   (or: gcloud builds submit --config cloudbuild.yaml)
+# ==============================================================================
+
+# ---- web UI (built in same-origin mode) ----------------------------------------
+FROM node:24-alpine AS ui
+WORKDIR /build/understudy-ui
+COPY understudy-ui/package*.json ./
+RUN npm ci --no-audit --no-fund
+COPY understudy-ui/ ./
+ENV NEXT_TELEMETRY_DISABLED=1 \
+    NODE_ENV=production \
+    UNDERSTUDY_BACKEND_INTERNAL_URL=http://127.0.0.1:8000 \
+    NEXT_PUBLIC_UNDERSTUDY_API_BASE=same-origin
+RUN npm run build
+
+# ---- runtime: Python backend + Chromium + Node (UI server and JavaScript tools) --
+FROM python:3.11-slim
+# 9.9: Java + Maven are in the image by default. A Cloud Run instance's disk is temporary, so a JDK a tool setup
+# downloads exists only on the instance that downloaded it (Understudy re-downloads it on the others - slower).
+# --build-arg INSTALL_JAVA=false makes the image ~300 MB smaller if no Java tool will be used.
+ARG INSTALL_JAVA=true
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PLAYWRIGHT_BROWSERS_PATH=/ms-playwright \
+    NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=8080 \
+    GOOGLE_GENAI_USE_VERTEXAI=true \
+    UNDERSTUDY_STORE=firestore \
+    UNDERSTUDY_CODE_HEALTH=off
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates gnupg xvfb \
+    && curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs \
+    && if [ "$INSTALL_JAVA" = "true" ]; then mkdir -p /usr/share/man/man1 \
+         && apt-get install -y --no-install-recommends default-jdk-headless maven; fi \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt requirements-gcp.txt ./
+RUN pip install --no-cache-dir -r requirements-gcp.txt \
+    && python -m playwright install --with-deps chromium
+
+COPY . .
+COPY --from=ui /build/understudy-ui/.next /app/understudy-ui/.next
+COPY --from=ui /build/understudy-ui/node_modules /app/understudy-ui/node_modules
+# 9.9: /ms-playwright too - a tool that pins another Playwright version installs ITS browser there during setup,
+# and Understudy runs as this user (root-owned, the setup failed with 'permission denied').
+RUN chmod +x /app/entrypoint-cloudrun.sh \
+    && useradd --create-home --uid 10001 understudy \
+    && mkdir -p /app/generated /app/uploads /app/skills && touch /app/.env \
+    && chown -R understudy /app/generated /app/uploads /app/skills /app/.env /app/understudy-ui/.next /ms-playwright
+USER understudy
+
+EXPOSE 8080
+ENTRYPOINT ["/app/entrypoint-cloudrun.sh"]

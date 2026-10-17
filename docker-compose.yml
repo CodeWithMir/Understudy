@@ -1,0 +1,83 @@
+# Understudy - backend (8000) + web UI (3000). Start with ./deploy_docker.sh (Windows: deploy_docker.bat), which also
+# adds docker-compose.gcp.yml when .env switches on Vertex AI / Firestore / Cloud Storage. By hand:
+#   docker compose up --build -d          stop: docker compose down
+# Settings come from .env (see .env.example); every value below has a safe default.
+services:
+  understudy-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+      args:
+        # true = preinstall Java + Maven (Understudy can also download a JDK / Maven itself in Mission Control)
+        INSTALL_JAVA: ${UNDERSTUDY_INSTALL_JAVA:-false}
+    image: understudy-backend:${UNDERSTUDY_VERSION:-local}
+    container_name: understudy-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    # every setting in .env reaches the backend (the list below only adds defaults / overrides)
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Optional: leave empty to run in offline LOCAL_HEURISTIC mode, or set it here / in .env / via the UI.
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-flash-latest}
+      - PYTHONUNBUFFERED=1
+      - UNDERSTUDY_DEPENDENCY_INSTALL=${UNDERSTUDY_DEPENDENCY_INSTALL:-auto}
+      - UNDERSTUDY_ALLOWED_PRIVATE_HOSTS=${UNDERSTUDY_ALLOWED_PRIVATE_HOSTS:-}
+      - UNDERSTUDY_ADMIN_TOKEN=${UNDERSTUDY_ADMIN_TOKEN:-}
+      # Mission Control login. The password comes from .env (UNDERSTUDY_ADMIN_PASSWORD) - deploy_docker.* generate it on the
+      # first start and show it once (grep UNDERSTUDY_ADMIN_PASSWORD .env). A password changed in the UI lasts until restart.
+      - UNDERSTUDY_ADMIN_USERNAME=${UNDERSTUDY_ADMIN_USERNAME:-admin}
+      - UNDERSTUDY_MAX_SELF_HEAL_RETRIES=${UNDERSTUDY_MAX_SELF_HEAL_RETRIES:-5}
+      - UNDERSTUDY_CODE_HEALTH_AUTO_APPLY=${UNDERSTUDY_CODE_HEALTH_AUTO_APPLY:-false}
+      # Email for OTP codes and account notices (README 2.0.2; free: Gmail App Password or Brevo). Put the values in .env.
+      - UNDERSTUDY_SIGNUP=${UNDERSTUDY_SIGNUP:-on}
+      - UNDERSTUDY_SIGNUP_DOMAINS=${UNDERSTUDY_SIGNUP_DOMAINS:-}
+      - UNDERSTUDY_MAIL_MODE=${UNDERSTUDY_MAIL_MODE:-}
+      - UNDERSTUDY_SMTP_HOST=${UNDERSTUDY_SMTP_HOST:-}
+      - UNDERSTUDY_SMTP_PORT=${UNDERSTUDY_SMTP_PORT:-587}
+      - UNDERSTUDY_SMTP_SECURITY=${UNDERSTUDY_SMTP_SECURITY:-starttls}
+      - UNDERSTUDY_SMTP_USER=${UNDERSTUDY_SMTP_USER:-}
+      - UNDERSTUDY_SMTP_PASSWORD=${UNDERSTUDY_SMTP_PASSWORD:-}
+      - UNDERSTUDY_MAIL_FROM=${UNDERSTUDY_MAIL_FROM:-}
+      - UNDERSTUDY_MAIL_FROM_NAME=${UNDERSTUDY_MAIL_FROM_NAME:-Understudy}
+      - UNDERSTUDY_ADMIN_CONTACT=${UNDERSTUDY_ADMIN_CONTACT:-}
+      # Google Cloud (README > "Google Cloud set-up, step by step"; scripts/gcp_setup.sh writes these into .env).
+      # Credentials for Vertex AI / Firestore / Cloud Storage come from docker-compose.gcp.yml, which
+      # deploy_docker.sh/.bat add automatically when one of these is switched on.
+      - GOOGLE_GENAI_USE_VERTEXAI=${GOOGLE_GENAI_USE_VERTEXAI:-false}
+      - GOOGLE_CLOUD_PROJECT=${GOOGLE_CLOUD_PROJECT:-}
+      - GOOGLE_CLOUD_LOCATION=${GOOGLE_CLOUD_LOCATION:-us-central1}
+      - UNDERSTUDY_VERTEX_LOCATION=${UNDERSTUDY_VERTEX_LOCATION:-}
+      - UNDERSTUDY_VERTEX_MODEL=${UNDERSTUDY_VERTEX_MODEL:-}
+      - UNDERSTUDY_STORE=${UNDERSTUDY_STORE:-local}
+      - UNDERSTUDY_FIRESTORE_DATABASE=${UNDERSTUDY_FIRESTORE_DATABASE:-(default)}
+      - UNDERSTUDY_GCS_BUCKET=${UNDERSTUDY_GCS_BUCKET:-}
+      - UNDERSTUDY_SESSION_SECRET=${UNDERSTUDY_SESSION_SECRET:-}
+    volumes:
+      - ./uploads:/app/uploads
+      - ./generated:/app/generated
+      - ./skills:/app/skills
+    healthcheck:
+      test: [ "CMD", "curl", "-fs", "http://localhost:8000/api/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  understudy-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: understudy-frontend:${UNDERSTUDY_VERSION:-local}
+    container_name: understudy-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      understudy-backend:
+        condition: service_healthy
