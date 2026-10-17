@@ -3,7 +3,7 @@
 # (setup.sh / setup.bat and the Docker images do both). Every package below is imported by the application.
 
 # Web API & server (server.py, core/wizard/*_api.py, erp/mock_erp.py)
-fastapi>=0.110.0,<1.0.0
+fastapi>=0.143.1,<1.0.0
 uvicorn[standard]>=0.28.0,<1.0.0      # [standard] also provides the WebSocket transport (live events)
 pydantic>=2.6.4,<3.0.0
 python-multipart>=0.0.9               # FastAPI UploadFile / Form (Step 1 recording upload)
