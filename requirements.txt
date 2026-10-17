@@ -5,7 +5,7 @@
 # Web API & server (server.py, core/wizard/*_api.py, erp/mock_erp.py)
 fastapi>=0.110.0,<1.0.0
 uvicorn[standard]>=0.28.0,<1.0.0      # [standard] also provides the WebSocket transport (live events)
-pydantic>=2.6.4,<3.0.0
+pydantic>=2.14.1,<3.0.0
 python-multipart>=0.0.9               # FastAPI UploadFile / Form (Step 1 recording upload)
 
 # Google Gemini - Understudy's agents use Google's current Gen AI SDK, on AI Studio (API key) or on Vertex AI
