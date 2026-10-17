@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="docs/assets/hero.svg" alt="Understudy - Watch, Govern, Build, Execute, Export" width="100%"/>
+<img src="docs/assets/stage.svg" alt="Understudy - the curtain opens" width="100%"/>
+
+<img src="docs/assets/tagline.svg" alt="Watches you do it once. Turns your SOP into rules. Writes the code. Heals itself. Ships only what worked." width="620"/>
 
 <br/>
 
@@ -12,7 +14,7 @@
 ![Tests](https://img.shields.io/badge/tests-855%20passing-34A853)
 ![Model Armor](https://img.shields.io/badge/guardrails-Model%20Armor-EA4335)
 
-### Gemini watches you do a task once - and hands back automation that obeys your rules and proves it worked.
+### An *understudy* learns a role by watching the lead perform it once.<br/>This one learns your job from a screen recording - then performs it by the rules, with receipts.
 
 [**Live demo**](#-links) · [**Demo video**](#-links) · [**Pitch deck**](docs/Understudy_Pitch_Deck.pdf) · [Architecture](ARCHITECTURE.md) · [Full guide](docs/GUIDE.md) · [Benchmark](docs/BENCHMARK.md)
 
@@ -42,6 +44,18 @@
 </tr>
 </table>
 
+## 🎭 The story in four scenes
+
+<img src="docs/assets/story.svg" alt="Four scenes: before, rehearsal, plot twist, curtain call" width="100%"/>
+
+<details>
+<summary><b>🎟️ Open the playbill - who plays which part</b></summary>
+<br/>
+<img src="docs/assets/playbill.svg" alt="Playbill: the cast of Understudy" width="100%"/>
+</details>
+
+## 🎬 Watch the performance
+
 <div align="center">
 <img src="docs/assets/walkthrough.gif" alt="Animated walkthrough of the five steps" width="90%"/>
 <br/><sub>Captured from the running product: Watch → Govern → Build → Execute → Export, plus Model Armor and Mission Control.</sub>
@@ -54,7 +68,7 @@
 | **Technical Merit & Gen AI** | 40% | 28 Gemini prompts in one registry → [`core/wizard/prompts.py`](core/wizard/prompts.py), verbatim in [ARCHITECTURE.md §8](ARCHITECTURE.md) · multimodal video understanding → [`watch.py`](core/wizard/watch.py) · build agent that proves locators on the live page → [`build_agent.py`](core/wizard/build_agent.py) · run-time Gemini agent → [`agent_runtime.py`](core/wizard/agent_runtime.py) · 855 tests → [`tests/`](tests) |
 | **Problem Alignment & Impact** | 25% | [The problem](#-the-problem) · [Measured results](#-measured-not-claimed) · ledger-verified benchmark → [`scripts/benchmark.py`](scripts/benchmark.py) |
 | **Innovation & Creativity** | 25% | [What makes it different](#-what-makes-it-different) · SOP rules shipped *inside* every generated script → [`governance_runtime.py`](core/wizard/governance_runtime.py) · difficulty score that routes traditional vs agentic |
-| **User Experience & Design** | 10% | [Screens](#-screens) · five guided steps, video-timed evidence, one-click fixes, light/dark themes, separate admin console |
+| **User Experience & Design** | 10% | [Scenes](#scenes) · five guided steps, video-timed evidence, one-click fixes, light/dark themes, separate admin console |
 | **Deployed on Google Cloud** | required | [`deploy_cloudrun.sh`](deploy_cloudrun.sh) · [`scripts/check_deployment.py`](scripts/check_deployment.py) checks the live URL against the submission rules |
 
 ## 🧱 The problem
@@ -71,7 +85,9 @@ specialist, weeks of scripting, and a PDF of rules nobody enforces. Today's opti
 | *"It ran, so it worked"* - exit 0, nothing saved | Step-by-step evidence; the benchmark checks the target's own ledger |
 | *It broke* after a UI release | Gemini diagnoses, shows the fix as a diff, re-runs after approval, **remembers** |
 
-## 🔁 How it works
+## 🔁 How it works - a play in five acts
+
+<img src="docs/assets/hero.svg" alt="The five acts: Watch, Govern, Build, Execute, Export" width="100%"/>
 
 Five gated steps. A step cannot start until the previous one passes, and the download is refused until all five do.
 **Gemini understands; deterministic checks decide.**
@@ -124,24 +140,26 @@ sequenceDiagram
 
 </details>
 
-## 🖥️ Screens
+<a id="scenes"></a>
+
+## 🖥️ Scenes from the show
 
 <table>
 <tr>
-<td width="50%"><b>1 · Watch</b> - every step time-stamped to the video and checked on the live page<br/><img src="docs/screenshots/02-watch-understanding.png" alt="Watch step"/></td>
-<td width="50%"><b>1 · Watch</b> - Automation Difficulty Score routes traditional vs agentic<br/><img src="docs/screenshots/03-difficulty-score.png" alt="Difficulty score"/></td>
+<td width="50%"><b>Act I · Watch</b> - every step time-stamped to the video and checked on the live page<br/><img src="docs/screenshots/02-watch-understanding.png" alt="Watch step"/></td>
+<td width="50%"><b>Act I · Watch</b> - Automation Difficulty Score routes traditional vs agentic<br/><img src="docs/screenshots/03-difficulty-score.png" alt="Difficulty score"/></td>
 </tr>
 <tr>
-<td><b>2 · Govern</b> - "$5,000 spend limit" blocks a $7,500 invoice before anything runs<br/><img src="docs/screenshots/04-govern-blocks-bad-data.png" alt="Govern blocks"/></td>
-<td><b>2 · Govern</b> - fixed in place; rules confirmed; payload complies<br/><img src="docs/screenshots/05-govern-complies.png" alt="Govern complies"/></td>
+<td><b>Act II · Govern</b> - "$5,000 spend limit" blocks a $7,500 invoice before anything runs<br/><img src="docs/screenshots/04-govern-blocks-bad-data.png" alt="Govern blocks"/></td>
+<td><b>Act II · Govern</b> - fixed in place; rules confirmed; payload complies<br/><img src="docs/screenshots/05-govern-complies.png" alt="Govern complies"/></td>
 </tr>
 <tr>
-<td><b>3 · Build</b> - readable code with the SOP rule check built in<br/><img src="docs/screenshots/06-build-generated-code.png" alt="Generated code"/></td>
-<td><b>4 · Execute</b> - <code>GOVERN OK</code> → <code>STEP 1-5 OK</code> → complete, on a restricted network<br/><img src="docs/screenshots/07-execute-run-log.png" alt="Run log"/></td>
+<td><b>Act III · Build</b> - readable code with the SOP rule check built in<br/><img src="docs/screenshots/06-build-generated-code.png" alt="Generated code"/></td>
+<td><b>Act IV · Execute</b> - <code>GOVERN OK</code> → <code>STEP 1-5 OK</code> → complete, on a restricted network<br/><img src="docs/screenshots/07-execute-run-log.png" alt="Run log"/></td>
 </tr>
 <tr>
-<td><b>5 · Proof</b> - the record really is in the target app's ledger<br/><img src="docs/screenshots/08-target-ledger-proof.png" alt="Ledger"/></td>
-<td><b>5 · Export</b> - code, data, rules and evidence in one ZIP<br/><img src="docs/screenshots/09-export-zip.png" alt="Export"/></td>
+<td><b>Act V · Proof</b> - the record really is in the target app's ledger<br/><img src="docs/screenshots/08-target-ledger-proof.png" alt="Ledger"/></td>
+<td><b>Act V · Export</b> - code, data, rules and evidence in one ZIP<br/><img src="docs/screenshots/09-export-zip.png" alt="Export"/></td>
 </tr>
 <tr>
 <td><b>🛡️ Model Armor</b> - a prompt injection hidden in the SOP is stopped in Step 1<br/><img src="docs/screenshots/10-model-armor-block.png" alt="Model Armor"/></td>
@@ -308,7 +326,7 @@ Known limitations are listed openly in [ARCHITECTURE.md §11](ARCHITECTURE.md). 
 | Demo video (under 3 minutes) | *to be added* |
 | Pitch deck | [docs/Understudy_Pitch_Deck.pdf](docs/Understudy_Pitch_Deck.pdf) |
 
-## 👥 Team JAAAR
+## 👏 Curtain call - Team JAAAR
 
 *Just Another Agentic AI Researcher* - built for the **Google Cloud AI Builder Cup 2026**.
 
