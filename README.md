@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/stage.svg" alt="Understudy - the curtain opens" width="100%"/>
+<img src="docs/assets/stage.svg" alt="Understudy - Show it once. Get automation you can trust." width="100%"/>
 
 <img src="docs/assets/tagline.svg" alt="Watches you do it once. Turns your SOP into rules. Writes the code. Heals itself. Ships only what worked." width="620"/>
 
