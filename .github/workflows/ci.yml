@@ -36,7 +36,16 @@ jobs:
           pip install -r requirements-dev.txt
           python -m playwright install --with-deps chromium
       - name: Run the test suite
-        run: python -m pytest -q
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q -rfE 2>&1 | tee pytest.log
+      - name: Report failing tests
+        if: failure()
+        shell: bash
+        run: |
+          grep -E "^(FAILED|ERROR) " pytest.log | head -50 | sed 's/^/::error title=pytest::/' || true
+          tail -n 3 pytest.log | sed 's/^/::notice title=pytest::/'
 
   frontend:
     name: Web UI (lint + build)
