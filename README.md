@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/stage.svg" alt="Understudy - the curtain opens" width="100%"/>
-
-<img src="docs/assets/tagline.svg" alt="Watches you do it once. Turns your SOP into rules. Writes the code. Heals itself. Ships only what worked." width="620"/>
+<img src="docs/assets/hero.svg" alt="Understudy - Watch, Govern, Build, Execute, Export" width="100%"/>
 
 <br/>
 
@@ -14,7 +12,7 @@
 ![Tests](https://img.shields.io/badge/tests-855%20passing-34A853)
 ![Model Armor](https://img.shields.io/badge/guardrails-Model%20Armor-EA4335)
 
-### An *understudy* learns a role by watching the lead perform it once.<br/>This one learns your job from a screen recording - then performs it by the rules, with receipts.
+### Gemini watches you do a task once - and hands back automation that obeys your rules and proves it worked.
 
 [**Live demo**](#-links) · [**Demo video**](#-links) · [**Pitch deck**](docs/Understudy_Pitch_Deck.pdf) · [Architecture](ARCHITECTURE.md) · [Full guide](docs/GUIDE.md) · [Benchmark](docs/BENCHMARK.md)
 
@@ -86,8 +84,6 @@ specialist, weeks of scripting, and a PDF of rules nobody enforces. Today's opti
 | *It broke* after a UI release | Gemini diagnoses, shows the fix as a diff, re-runs after approval, **remembers** |
 
 ## 🔁 How it works - a play in five acts
-
-<img src="docs/assets/hero.svg" alt="The five acts: Watch, Govern, Build, Execute, Export" width="100%"/>
 
 Five gated steps. A step cannot start until the previous one passes, and the download is refused until all five do.
 **Gemini understands; deterministic checks decide.**
