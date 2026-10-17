@@ -20,7 +20,7 @@ class PytestOutputTest(unittest.TestCase):
             open(os.path.join(d, "test_x.py"), "w").write(
                 "import sys\ndef test_ok():\n    sys.__stdout__.write('GOVERN OK: 0 SOP rule(s)\\n')\n    print('STEP 1 OK')\n")
             open(os.path.join(d, "pytest.ini"), "w").write("[pytest]\n")
-            env = dict(os.environ, PYTEST_ADDOPTS="-s")
+            env = dict(os.environ, PYTEST_ADDOPTS="-s", PYTHONUNBUFFERED="1")   # same output on every machine
             r = subprocess.run([sys.executable, "-m", "pytest", "test_x.py"], cwd=d, env=env, capture_output=True, text=True)
             self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
             self.assertIn("GOVERN OK", r.stdout)

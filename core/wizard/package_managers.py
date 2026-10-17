@@ -331,7 +331,13 @@ def register_path(kind: str, path: str, admin: str = "admin") -> Dict[str, Any]:
     if not p or not os.path.isabs(p):
         raise PackageManagerError("Give the full path of the folder (e.g. /opt/gradle-8.10 or C:\\Tools\\gradle-8.10).")
     exe = PROVIDES[kind][0]
-    cands = [p, os.path.dirname(p), os.path.dirname(os.path.dirname(p))]
+    # The folder itself, its parent when the admin gave the bin folder, and the home when the admin gave the program
+    # itself (home/bin/<exe>). Never walk further up: an empty folder must not resolve to a system install at "/".
+    cands = [p]
+    if os.path.basename(p.rstrip("/\\")).lower() == "bin":
+        cands.append(os.path.dirname(p.rstrip("/\\")))
+    if os.path.isfile(p):
+        cands += [os.path.dirname(p), os.path.dirname(os.path.dirname(p))]
     home = None
     if kind == "dotnet":                     # the .NET SDK has dotnet(.exe) at the top of its folder, not in bin/
         for c in cands:

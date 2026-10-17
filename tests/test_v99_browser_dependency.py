@@ -14,6 +14,18 @@ from core.wizard import runtime_repair as rr
 from core.wizard.frameworks import CATALOG, Package
 from core.wizard.sandbox import LocalProcessSandboxRunner
 
+
+# CI machines (e.g. GitHub's ubuntu runners) set CHROME_BIN and friends; these tests simulate machines without them.
+_ENV_PATCH = mock.patch.dict(os.environ, {k: "" for keys in rr._BROWSER_ENV.values() for k in keys})
+
+
+def setUpModule():
+    _ENV_PATCH.start()
+
+
+def tearDownModule():
+    _ENV_PATCH.stop()
+
 NO_BROWSERS = {"chrome": None, "edge": None, "chromium": None, "firefox": None, "playwright_chromium": None}
 
 
