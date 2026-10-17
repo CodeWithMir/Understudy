@@ -1,93 +1,145 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="Understudy: Watch, Govern, Build, Execute, Export">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-label="Understudy - Google Cloud AI Builder Cup 2026, Future of Work and Enterprise Productivity. Watch, Govern, Build, Execute, Export.">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0B1020"/>
-      <stop offset="1" stop-color="#141C33"/>
+    <clipPath id="frame"><rect width="1200" height="440" rx="28"/></clipPath>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="64"/></filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="card" x="-10%" y="-20%" width="120%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.45"/></filter>
+    <linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#BFC9E6"/>
+    </linearGradient>
+    <linearGradient id="g4" gradientUnits="userSpaceOnUse" x1="64" y1="0" x2="300" y2="0">
+      <stop offset="0" stop-color="#4285F4"/><stop offset="0.33" stop-color="#EA4335"/>
+      <stop offset="0.66" stop-color="#FBBC04"/><stop offset="1" stop-color="#34A853"/>
     </linearGradient>
     <linearGradient id="track" gradientUnits="userSpaceOnUse" x1="140" y1="0" x2="1060" y2="0">
-      <stop offset="0" stop-color="#4285F4"/>
-      <stop offset="0.25" stop-color="#FBBC04"/>
-      <stop offset="0.5" stop-color="#34A853"/>
-      <stop offset="0.75" stop-color="#EA4335"/>
+      <stop offset="0" stop-color="#4285F4"/><stop offset="0.25" stop-color="#FBBC04"/>
+      <stop offset="0.5" stop-color="#34A853"/><stop offset="0.75" stop-color="#EA4335"/>
       <stop offset="1" stop-color="#A78BFA"/>
     </linearGradient>
-    <radialGradient id="glow">
-      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.9"/>
+    <radialGradient id="comet">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.35" stop-color="#22D3EE" stop-opacity="0.85"/>
       <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity="0.035"/>
+    <radialGradient id="fade" cx="50%" cy="40%" r="65%">
+      <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="gridmask"><rect width="1200" height="440" fill="url(#fade)"/></mask>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.1" fill="#FFFFFF" fill-opacity="0.09"/>
     </pattern>
     <style>
-      .t{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
-      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-      .node{fill-opacity:.08;animation:pulse 10s infinite both}
-      .n1{animation-delay:0s}.n2{animation-delay:2.1s}.n3{animation-delay:4.25s}.n4{animation-delay:6.4s}.n5{animation-delay:8.5s}
-      @keyframes pulse{0%,100%{fill-opacity:.08}3%,14%{fill-opacity:.6}20%{fill-opacity:.08}}
+      .sans{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+      .mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+      .a1{animation:d1 18s ease-in-out infinite alternate}
+      .a2{animation:d2 22s ease-in-out infinite alternate}
+      .a3{animation:d3 26s ease-in-out infinite alternate}
+      @keyframes d1{to{transform:translate(140px,40px)}}
+      @keyframes d2{to{transform:translate(-160px,-30px)}}
+      @keyframes d3{to{transform:translate(90px,-40px)}}
+      .rise{animation:rise 1.3s cubic-bezier(.2,.7,.2,1) both}
+      .r2{animation-delay:.15s}.r3{animation-delay:.3s}.r4{animation-delay:.45s}.r5{animation-delay:.6s}
+      @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+      .halo{fill-opacity:0;animation:halo 10s infinite both}
+      .h1{animation-delay:0s}.h2{animation-delay:2.1s}.h3{animation-delay:4.25s}.h4{animation-delay:6.4s}.h5{animation-delay:8.5s}
+      @keyframes halo{0%,100%{fill-opacity:0}3%,14%{fill-opacity:.35}20%{fill-opacity:0}}
       .log{opacity:0;animation:show 10s infinite both}
       .l1{animation-delay:0s}.l2{animation-delay:2.1s}.l3{animation-delay:4.25s}.l4{animation-delay:6.4s}.l5{animation-delay:8.5s}
       @keyframes show{0%{opacity:0}2%,19%{opacity:1}21%,100%{opacity:0}}
       .cursor{animation:blink 1s steps(1) infinite}
       @keyframes blink{50%{opacity:0}}
+      @media (prefers-reduced-motion: reduce){.a1,.a2,.a3,.rise,.cursor{animation:none}.halo{animation:none}.log{animation:none}.l1{opacity:1}}
     </style>
   </defs>
 
-  <rect width="1200" height="420" rx="24" fill="url(#bg)"/>
-  <rect width="1200" height="420" rx="24" fill="url(#grid)"/>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="440" fill="#070A14"/>
 
-  <text x="64" y="86" class="t" font-size="15" font-weight="700" letter-spacing="3" fill="#22D3EE">GOOGLE CLOUD AI BUILDER CUP 2026 · TEAM JAAAR</text>
-  <text x="62" y="152" class="t" font-size="64" font-weight="800" fill="#F3F5FA">Understudy</text>
-  <text x="64" y="194" class="t" font-size="24" fill="#9AA4BF">Show it once. Get automation you can trust.</text>
+    <!-- aurora in Google colours -->
+    <g filter="url(#blur)" opacity="0.8">
+      <ellipse class="a1" cx="220" cy="90" rx="240" ry="110" fill="#4285F4" fill-opacity="0.40"/>
+      <ellipse class="a2" cx="1000" cy="80" rx="230" ry="110" fill="#A78BFA" fill-opacity="0.32"/>
+      <ellipse class="a3" cx="640" cy="440" rx="320" ry="100" fill="#34A853" fill-opacity="0.22"/>
+      <ellipse class="a2" cx="120" cy="420" rx="170" ry="80" fill="#FBBC04" fill-opacity="0.14"/>
+      <ellipse class="a1" cx="1120" cy="420" rx="170" ry="80" fill="#EA4335" fill-opacity="0.14"/>
+    </g>
+    <rect width="1200" height="440" fill="url(#dots)" mask="url(#gridmask)"/>
 
-  <!-- pipeline track -->
-  <path id="p" d="M140 300 H1060" stroke="#2A3352" stroke-width="6" stroke-linecap="round"/>
-  <path d="M140 300 H1060" stroke="url(#track)" stroke-width="6" stroke-linecap="round" stroke-dasharray="920" stroke-dashoffset="920">
-    <animate attributeName="stroke-dashoffset" values="920;0;0;920" keyTimes="0;0.85;0.97;1" dur="10s" repeatCount="indefinite"/>
-  </path>
+    <!-- left: event + title -->
+    <g class="sans rise">
+      <rect x="64" y="52" width="252" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.16"/>
+      <g transform="translate(82 67)">
+        <circle cx="0" cy="0" r="4" fill="#4285F4"/><circle cx="11" cy="0" r="4" fill="#EA4335"/>
+        <circle cx="22" cy="0" r="4" fill="#FBBC04"/><circle cx="33" cy="0" r="4" fill="#34A853"/>
+      </g>
+      <text x="128" y="72" font-size="12" font-weight="600" letter-spacing="2.2" fill="#D6DCEE">AI BUILDER CUP 2026</text>
+      <rect x="328" y="52" width="304" height="30" rx="15" fill="#34A853" fill-opacity="0.12" stroke="#34A853" stroke-opacity="0.45"/>
+      <text x="480" y="72" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="1.2" fill="#9BE3B0">Future of Work · Enterprise Productivity</text>
+    </g>
+    <g class="sans rise r2">
+      <text x="60" y="166" font-size="82" font-weight="700" letter-spacing="-2.5" fill="url(#title)">Understudy</text>
+      <rect x="66" y="184" width="236" height="3" rx="1.5" fill="url(#g4)"/>
+    </g>
+    <g class="sans rise r3">
+      <text x="64" y="226" font-size="22" fill="#AEB8D3">Show it once. Get automation you can trust.</text>
+    </g>
 
-  <!-- nodes -->
-  <g class="t" font-size="15" font-weight="700" text-anchor="middle">
-    <circle cx="140" cy="300" r="34" fill="#0F1529"/>
-    <circle class="node n1" cx="140" cy="300" r="34" fill="#4285F4" stroke="#4285F4" stroke-width="2.5"/>
-    <text x="140" y="306" fill="#F3F5FA">1</text>
-    <text x="140" y="364" fill="#F3F5FA" letter-spacing="2">WATCH</text>
+    <!-- right: glass terminal -->
+    <g class="rise r4">
+      <rect x="738" y="104" width="398" height="112" rx="16" fill="#0E1426" fill-opacity="0.85" stroke="#FFFFFF" stroke-opacity="0.12" filter="url(#card)"/>
+      <circle cx="760" cy="126" r="5" fill="#EA4335"/><circle cx="777" cy="126" r="5" fill="#FBBC04"/><circle cx="794" cy="126" r="5" fill="#34A853"/>
+      <text x="1116" y="130" text-anchor="end" class="sans" font-size="11" letter-spacing="1.5" fill="#6B7594">GEMINI · VERTEX AI</text>
+      <path d="M738 142 H1136" stroke="#FFFFFF" stroke-opacity="0.06"/>
+      <g class="mono" font-size="15">
+        <text x="760" y="186" fill="#6B7594">❯</text>
+        <text class="log l1" x="780" y="186" fill="#8AB4FF">watch   5 steps · 4/4 on live page</text>
+        <text class="log l2" x="780" y="186" fill="#FFD666">govern  7,500 &gt; 5,000 · blocked</text>
+        <text class="log l3" x="780" y="186" fill="#7EE2A0">build   locators proven on 2 loads</text>
+        <text class="log l4" x="780" y="186" fill="#FF8A80">execute STEP 1-5 OK · 3.5 s</text>
+        <text class="log l5" x="780" y="186" fill="#C9B6FF">export  ledger TRX-1002 ✓ · .zip</text>
+        <rect class="cursor" x="1108" y="172" width="8" height="18" rx="1" fill="#22D3EE"/>
+      </g>
+    </g>
 
-    <circle cx="370" cy="300" r="34" fill="#0F1529"/>
-    <circle class="node n2" cx="370" cy="300" r="34" fill="#FBBC04" stroke="#FBBC04" stroke-width="2.5"/>
-    <text x="370" y="306" fill="#F3F5FA">2</text>
-    <text x="370" y="364" fill="#F3F5FA" letter-spacing="2">GOVERN</text>
+    <!-- pipeline -->
+    <g class="rise r5">
+      <path d="M140 304 H1060" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="3" stroke-linecap="round"/>
+      <path d="M140 304 H1060" stroke="url(#track)" stroke-width="3" stroke-linecap="round" stroke-dasharray="920" stroke-dashoffset="920">
+        <animate attributeName="stroke-dashoffset" values="920;0;0;920" keyTimes="0;0.85;0.97;1" dur="10s" repeatCount="indefinite"/>
+      </path>
+      <g class="sans" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="3">
+        <circle class="halo h1" cx="140" cy="304" r="30" fill="#4285F4"/>
+        <circle cx="140" cy="304" r="17" fill="#0E1426" stroke="#4285F4" stroke-width="2"/>
+        <text x="140" y="309" font-size="13" letter-spacing="0" fill="#8AB4FF">1</text>
+        <text x="140" y="352" fill="#C9D1E6">WATCH</text>
 
-    <circle cx="600" cy="300" r="34" fill="#0F1529"/>
-    <circle class="node n3" cx="600" cy="300" r="34" fill="#34A853" stroke="#34A853" stroke-width="2.5"/>
-    <text x="600" y="306" fill="#F3F5FA">3</text>
-    <text x="600" y="364" fill="#F3F5FA" letter-spacing="2">BUILD</text>
+        <circle class="halo h2" cx="370" cy="304" r="30" fill="#FBBC04"/>
+        <circle cx="370" cy="304" r="17" fill="#0E1426" stroke="#FBBC04" stroke-width="2"/>
+        <text x="370" y="309" font-size="13" letter-spacing="0" fill="#FFD666">2</text>
+        <text x="370" y="352" fill="#C9D1E6">GOVERN</text>
 
-    <circle cx="830" cy="300" r="34" fill="#0F1529"/>
-    <circle class="node n4" cx="830" cy="300" r="34" fill="#EA4335" stroke="#EA4335" stroke-width="2.5"/>
-    <text x="830" y="306" fill="#F3F5FA">4</text>
-    <text x="830" y="364" fill="#F3F5FA" letter-spacing="2">EXECUTE</text>
+        <circle class="halo h3" cx="600" cy="304" r="30" fill="#34A853"/>
+        <circle cx="600" cy="304" r="17" fill="#0E1426" stroke="#34A853" stroke-width="2"/>
+        <text x="600" y="309" font-size="13" letter-spacing="0" fill="#7EE2A0">3</text>
+        <text x="600" y="352" fill="#C9D1E6">BUILD</text>
 
-    <circle cx="1060" cy="300" r="34" fill="#0F1529"/>
-    <circle class="node n5" cx="1060" cy="300" r="34" fill="#A78BFA" stroke="#A78BFA" stroke-width="2.5"/>
-    <text x="1060" y="306" fill="#F3F5FA">5</text>
-    <text x="1060" y="364" fill="#F3F5FA" letter-spacing="2">EXPORT</text>
-  </g>
+        <circle class="halo h4" cx="830" cy="304" r="30" fill="#EA4335"/>
+        <circle cx="830" cy="304" r="17" fill="#0E1426" stroke="#EA4335" stroke-width="2"/>
+        <text x="830" y="309" font-size="13" letter-spacing="0" fill="#FF8A80">4</text>
+        <text x="830" y="352" fill="#C9D1E6">EXECUTE</text>
 
-  <!-- travelling spark -->
-  <circle r="16" fill="url(#glow)">
-    <animateMotion dur="10s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.85;1" calcMode="linear" path="M140 300 H1060"/>
-  </circle>
+        <circle class="halo h5" cx="1060" cy="304" r="30" fill="#A78BFA"/>
+        <circle cx="1060" cy="304" r="17" fill="#0E1426" stroke="#A78BFA" stroke-width="2"/>
+        <text x="1060" y="309" font-size="13" letter-spacing="0" fill="#C9B6FF">5</text>
+        <text x="1060" y="352" fill="#C9D1E6">EXPORT</text>
+      </g>
+      <circle r="12" fill="url(#comet)" filter="url(#soft)">
+        <animateMotion dur="10s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.85;1" calcMode="linear" path="M140 304 H1060"/>
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.85;0.86;1" dur="10s" repeatCount="indefinite"/>
+      </circle>
+      <text x="600" y="406" text-anchor="middle" class="sans" font-size="13" letter-spacing="1.5" fill="#6B7594">Team JAAAR  ·  Built with Gemini on Vertex AI  ·  Deployed on Cloud Run</text>
+    </g>
 
-  <!-- live log ticker -->
-  <rect x="700" y="112" width="436" height="92" rx="12" fill="#0B1020" stroke="#2A3352"/>
-  <circle cx="722" cy="132" r="5" fill="#EA4335"/><circle cx="740" cy="132" r="5" fill="#FBBC04"/><circle cx="758" cy="132" r="5" fill="#34A853"/>
-  <g class="mono" font-size="15">
-    <text x="722" y="178" fill="#9AA4BF">$</text>
-    <text class="log l1" x="742" y="178" fill="#4285F4">WATCH  5 steps · 4/4 on live page</text>
-    <text class="log l2" x="742" y="178" fill="#FBBC04">GOVERN 7,500 &gt; 5,000 · BLOCKED</text>
-    <text class="log l3" x="742" y="178" fill="#34A853">BUILD  locators proven · 2 loads</text>
-    <text class="log l4" x="742" y="178" fill="#EA4335">STEP 1-5 OK · COMPLETE in 3.5 s</text>
-    <text class="log l5" x="742" y="178" fill="#A78BFA">EXPORT ✓ ledger TRX-1002 · .zip</text>
-    <rect class="cursor" x="1100" y="164" width="9" height="18" fill="#22D3EE"/>
+    <rect x="0.5" y="0.5" width="1199" height="439" rx="28" fill="none" stroke="#FFFFFF" stroke-opacity="0.08"/>
   </g>
 </svg>
