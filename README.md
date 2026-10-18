@@ -14,9 +14,21 @@
 
 ### Gemini watches you do a task once - and hands back automation that obeys your rules and proves it worked.
 
-[**Live demo**](#-links) · [**▶ Demo video**](https://youtu.be/z9ClL-fcu0k) · [**Pitch deck**](docs/Understudy_Pitch_Deck.pdf) · [Architecture](ARCHITECTURE.md) · [Full guide](docs/GUIDE.md) · [Benchmark](docs/BENCHMARK.md)
+[**🚀 Live demo**](https://understudy-611120779669.us-central1.run.app/wizard) · [**▶ Demo video**](https://youtu.be/z9ClL-fcu0k) · [**Pitch deck**](docs/Understudy_Pitch_Deck.pdf) · [Architecture](ARCHITECTURE.md) · [Full guide](docs/GUIDE.md) · [Benchmark](docs/BENCHMARK.md)
 
 <sub>Google Cloud AI Builder Cup 2026 · Future of Work &amp; Enterprise Productivity · Team JAAAR</sub>
+
+<br/><br/>
+
+<a href="https://understudy-611120779669.us-central1.run.app/wizard"><img src="https://img.shields.io/badge/🚀%20Try%20it%20live-Cloud%20Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Try it live on Cloud Run"/></a>
+<a href="https://youtu.be/z9ClL-fcu0k"><img src="https://img.shields.io/badge/▶%20Demo%20video-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Demo video"/></a>
+
+<table>
+<tr><td align="center">
+<b>Live prototype:</b> <a href="https://understudy-611120779669.us-central1.run.app/wizard">understudy-611120779669.us-central1.run.app/wizard</a><br/>
+<b>Demo login</b> &nbsp;·&nbsp; User: <code>TestUser</code> &nbsp;·&nbsp; Password: <code>TestUser2026</code>
+</td></tr>
+</table>
 
 </div>
 
@@ -327,7 +339,8 @@ Known limitations are listed openly in [ARCHITECTURE.md §11](ARCHITECTURE.md). 
 
 | | |
 |---|---|
-| Live prototype (Cloud Run) | *to be added* |
+| Live prototype (Cloud Run) | [understudy-611120779669.us-central1.run.app/wizard](https://understudy-611120779669.us-central1.run.app/wizard) |
+| Demo login | User `TestUser` · Password `TestUser2026` |
 | Demo video (under 3 minutes) | [youtu.be/z9ClL-fcu0k](https://youtu.be/z9ClL-fcu0k) |
 | Pitch deck | [docs/Understudy_Pitch_Deck.pdf](docs/Understudy_Pitch_Deck.pdf) |
 | Source code | [github.com/CodeWithMir/Understudy](https://github.com/CodeWithMir/Understudy) |
