@@ -14,7 +14,7 @@
 
 ### Gemini watches you do a task once - and hands back automation that obeys your rules and proves it worked.
 
-[**Live demo**](#-links) · [**Demo video**](#-links) · [**Pitch deck**](docs/Understudy_Pitch_Deck.pdf) · [Architecture](ARCHITECTURE.md) · [Full guide](docs/GUIDE.md) · [Benchmark](docs/BENCHMARK.md)
+[**Live demo**](#-links) · [**▶ Demo video**](https://youtu.be/z9ClL-fcu0k) · [**Pitch deck**](docs/Understudy_Pitch_Deck.pdf) · [Architecture](ARCHITECTURE.md) · [Full guide](docs/GUIDE.md) · [Benchmark](docs/BENCHMARK.md)
 
 <sub>Google Cloud AI Builder Cup 2026 · Future of Work &amp; Enterprise Productivity · Team JAAAR</sub>
 
@@ -55,6 +55,15 @@
 ## 🎬 Watch the performance
 
 <div align="center">
+
+<a href="https://youtu.be/z9ClL-fcu0k"><img src="https://img.youtube.com/vi/z9ClL-fcu0k/hqdefault.jpg" alt="Watch the Understudy demo on YouTube" width="70%"/></a>
+
+[![Watch the demo on YouTube](https://img.shields.io/badge/▶%20Watch%20the%20demo-YouTube-FF0000?logo=youtube&logoColor=white&style=for-the-badge)](https://youtu.be/z9ClL-fcu0k)
+
+<sub>The official demo video for the AI Builder Cup 2026 (under 3 minutes).</sub>
+
+<br/>
+
 <img src="docs/assets/walkthrough.gif" alt="Animated walkthrough of the five steps" width="90%"/>
 <br/><sub>Captured from the running product: Watch → Govern → Build → Execute → Export, plus Model Armor and Mission Control.</sub>
 </div>
@@ -319,8 +328,9 @@ Known limitations are listed openly in [ARCHITECTURE.md §11](ARCHITECTURE.md). 
 | | |
 |---|---|
 | Live prototype (Cloud Run) | *to be added* |
-| Demo video (under 3 minutes) | *to be added* |
+| Demo video (under 3 minutes) | [youtu.be/z9ClL-fcu0k](https://youtu.be/z9ClL-fcu0k) |
 | Pitch deck | [docs/Understudy_Pitch_Deck.pdf](docs/Understudy_Pitch_Deck.pdf) |
+| Source code | [github.com/CodeWithMir/Understudy](https://github.com/CodeWithMir/Understudy) |
 
 ## 👏 Curtain call - Team JAAAR
 
@@ -329,6 +339,6 @@ Known limitations are listed openly in [ARCHITECTURE.md §11](ARCHITECTURE.md). 
 | | |
 |---|---|
 | **Mir Jasimuddin** | [@CodeWithMir](https://github.com/CodeWithMir) |
-| **Aarya Dutta** | |
+| **Aarya Dutta** | [@duttaaarya2000](https://github.com/duttaaarya2000) |
 
 <div align="center"><sub>Contributions welcome - see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</sub></div>
